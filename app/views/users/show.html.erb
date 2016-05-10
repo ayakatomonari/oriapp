@@ -1,7 +1,69 @@
 <div class="contents row">
-  <p><%= @nickname %>さんの投稿一覧</p>
-  <% @tweets.each do |tweet| %>
-    <%= render partial: "tweets/tweet", locals: { tweet: tweet } %>
-  <% end %>
-  <%= paginate(@tweets) %>
+
+<!-- <ul class="nav nav-tabs">
+<li class="active"><a href="#menu1" data-toggle="tab">menu 1</a></li>
+<li><a href="#menu2" data-toggle="tab">menu 2</a></li>
+<li><a href="#menu3" data-toggle="tab">menu 3</a></li>
+<li><a href="#menu4" data-toggle="tab">menu 4</a></li>
+<li><a href="#menu5" data-toggle="tab">menu 5</a></li>
+</ul>
+
+<div class="tab-content">
+<div class="tab-pane active" id="menu1">111</div>
+<div class="tab-pane" id="menu2">222</div>
+<div class="tab-pane" id="menu3">333</div>
+<div class="tab-pane" id="menu4">444</div>
+<div class="tab-pane" id="menu5">555</div>
+</div>
+-->
+
+
+<div class="clearfix">
+  <ul id="myTab" class="nav nav-tabs">
+    <li class="active"><a href="#tab01" data-toggle="tab">
+    投稿
+    <%= image_tag 'enpitsu_blue.png' ,width:'20px' %>
+    </a></li>
+    <li><a href="#tab02" data-toggle="tab">
+    コメント
+    <%= image_tag 'comment.png' ,width:'20px' %>
+    </a></li>
+    <li><a href="#tab03" data-toggle="tab">
+    いいね
+    <%= image_tag 'iine.png' ,width:'20px' %>
+    </a></li>
+  </ul>
+
+  <div id="myTabContent" class="tab-content">
+    <div class="tab-pane fade in active" id="tab01">
+      <p><%= @nickname %>さんの投稿一覧 </p> 
+      <% @tweets.each do |tweet| %>
+      <%= render partial: "tweets/tweet", locals: { tweet: tweet } %>
+      <% end %>
+    </div>
+
+    <div class="tab-pane fade in" id="tab02">
+      <div class="contents row">
+        <p><%= @nickname %>さんがコメントした投稿一覧</p>
+        <% @tweets_comments.each do |tweet| %>
+        <%= render partial: "tweets/tweet", locals: { tweet: tweet } %>
+        <% end %>
+      </div>
+    </div>
+
+
+    <div class="tab-pane fade in" id="tab03">    
+      <div class="contents row">
+        <p><%= @nickname %>さんがいいねした投稿一覧</p>
+        <% @tweets_likes.each do |tweet| %>
+        <%= render partial: "tweets/tweet", locals: { tweet: tweet } %>
+        <% end %>
+      </div>
+    </div>
+
+  </div>
+
+</div>
+
+<%= paginate(@tweets) %>
 </div>

@@ -58,3 +58,17 @@ group :development, :test do
   gem 'rspec-rails', "~> 3.1.0"
   gem 'factory_girl_rails', "~> 4.4.1"
 end
+
+group :production do
+  gem 'rails_12factor'
+  gem 'pg'
+end
+
+gem "carrierwave"
+gem 'rmagick'
+gem 'therubyracer' # javascript runtime。lessをコンパイルするために必要
+gem 'less-rails' # Railsでlessを使えるようにする。Bootstrapがlessで書かれているため
+gem 'twitter-bootstrap-rails' # Bootstrapの本体
+#omniauth
+gem 'omniauth-facebook'
+gem 'omniauth-twitter'

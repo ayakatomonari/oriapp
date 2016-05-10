@@ -14,9 +14,12 @@
   root 'tweets#index'
   resources :tweets do
     resources :comments, only: [:create]
+    resources :likes, only: [:create, :destroy]
   end
   resources :users, only: [:show]
 
+get 'users/:id/comments' => 'comments#show'
+get 'users/:id/likes' => 'likes#show'
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

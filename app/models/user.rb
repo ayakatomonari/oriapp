@@ -5,7 +5,16 @@ class User < ActiveRecord::Base
          :recoverable, :rememberable, :trackable, :validatable
   has_many :tweets
   has_many :comments               #commentsテーブルとのアソシエーション
+  has_many :likes
+  # has_many :posts
 
-validates :nickname, presence: true, length: { maximum: 6 }
+
+
+validates :nickname, presence: true, length: { maximum: 10 }
+
+serialize :give_comment
+serialize :give_like
+
+mount_uploader :image, ImageUploader
 
 end
