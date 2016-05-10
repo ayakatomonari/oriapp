@@ -1,4 +1,4 @@
-<!-- <div class="content_post" style="background-image: url(<%= tweet.image %>);"> -->
+
 <div class="post_content" >
 
   <div class="col-xs-6">
@@ -44,42 +44,31 @@
             </ul>
             <!-- リストここまで -->
 
-
-
-
           </div>
 
-    <div class="time_post">
-      <%= tweet.created_at.strftime("%Y年%m月%d日 %H時%M分")%>
-    </div>
+          <div class="time_post">
+            <%= tweet.created_at.strftime("%Y年%m月%d日 %H時%M分")%>
+          </div>
 
-    <div class="text_post">
-      <%= tweet.text%>
-    </div>
+          <div class="text_post">
+            <%= tweet.text%>
+          </div>
 
         </div>
 
+        <div class="col-xs-6">
 
-
-
-
-          <div class="col-xs-6">
-
-            <% if tweet.image? %>
-            <div class="image_post" style="background-image: url(<%= tweet.image %>);"> -->
-            </div>
-
-            <% else %>
-            <div class="image_post">
-              <%= image_tag tweet.image.url %>
-            </div>
-
-            <% end %>
-
+          <% if tweet.image? %>
+          <div class="image_post" style="background-image: url(<%= tweet.image %>);"> -->
           </div>
 
+          <% else %>
+          <div class="image_post">
+            <%= image_tag tweet.image.url %>
+          </div>
 
-
-
+          <% end %>
 
         </div>
+
+      </div>

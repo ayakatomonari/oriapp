@@ -1,59 +1,116 @@
-<div class ="contents row">
-  <div class="content_post" style="background-image: url(<%= @tweet.image %>);">
-    <% if user_signed_in? && current_user.id == @tweet.user_id %>
-    <div class="more">
-      <span><%= image_tag 'arrow_top.png' %></span>
-      <ul class="more_list">
-        <li>
-          <%= link_to '編集', "/tweets/#{@tweet.id}/edit", method: :get %>
-        </li>
-        <li>
-          <%= link_to '削除', "/tweets/#{@tweet.id}", method: :delete %>
-        </li>
-      </ul>
-    </div>
-    <% end %>
-
-    <p>
-    <%= simple_format(@tweet.title) %>
-  </p>
-    <%= simple_format(@tweet.text) %>
-    <span class="name">
-      <a href="/users/<%= @tweet.user.id %>">
-        <span>投稿者</span><%= @tweet.user.nickname %>
-      </a>
-    </span>
-  </div>
-  <div class="container"> 
 
 
-    <!-- ここからいいねしてください -->
-  <div id="hoge">
-    <%= render partial: "likes/like", locals: { tweet: @tweet, like: @like} %>
-  </div>
 
-    <!-- ここからフォーム -->
-    <% if current_user %>
-    <%= form_tag("/tweets/#{@tweet.id}/comments", method: :post) do %>
-    <textarea cols="30" name="text" placeholder="コメントする" rows="2"></textarea>
-    <input type="submit" value="SENT">
-    <% end %>
-    <% end %>
+  <div class="post_content_big" >
 
-    <!-- ここから追記してください -->
-    <div class="comments">
-      <h4>＜コメント一覧＞</h4>
-      <% if @comments %>
-      <% @comments.each do |comment| %>
-      <p>
-        <storng><%= link_to comment.user.nickname, "/users/#{comment.user_id}" %>：</strong>
-          <%= comment.text %>
-          
-          <%= comment.created_at.to_s(:published_on) %>
-        </p>
-        <% end %>
-        <% end %>
+<div class="detail">
+
+      <div class="col-xs-3">
+        <div class="user_image_big">
+
+        </div>
       </div>
 
-    </div>
-  </div>
+      <div class="col-xs-7">
+        <div class="name">
+
+          <a href="/users/<%= @tweet.user_id %>">
+            <%= @tweet.user.nickname %>
+          </a>
+        </div>
+            <div class="time_post">
+              <%= @tweet.created_at.strftime("%Y年%m月%d日 %H時%M分")%>
+            </div>
+
+
+      </div>
+
+      <div class="col-xs-2">
+      <div class="dropdown">
+
+        <!-- ここが表示されるボタン <a>タグでもOK -->
+        <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown">
+          <%= image_tag 'icon.png' ,width:'20px' %>
+          <span class="caret"></span>
+        </button>
+        <!-- ボタンここまで -->
+
+        <!-- ここはボタンを押すと表示されるリスト -->
+        <ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu1">
+          <li role="presentation"><a role="menuitem" tabindex="-1" href="#">          
+            <%= link_to "詳細", tweet_path(@tweet.id), method: :get %></a></li>
+            <% if user_signed_in? && current_user.id == @tweet.user_id %>
+            <li role="presentation" class="divider"></li>
+            <li role="presentation"><a role="menuitem" tabindex="-1" href="#">
+              <%= link_to '編集', "/tweets/#{@tweet.id}/edit", method: :get %></a></li>
+
+              <li role="presentation"><a role="menuitem" tabindex="-1" href="#">          
+                <%= link_to '削除', "/tweets/#{@tweet.id}", method: :delete %></a></li>
+
+                <% end %>
+              </ul>
+              <!-- リストここまで -->
+
+            </div>
+          </div>
+
+        </div>
+
+            <div class="text_post_big">
+              <%= @tweet.text%>
+            </div>
+
+
+            <% if @tweet.image? %>
+            <div class="image_post_big" style="background-image: url(<%= @tweet.image %>);"> -->
+            </div>
+
+            <% else %>
+            <div class="image_post_big">
+              <%= image_tag @tweet.image.url %>
+            </div>
+
+            <% end %>
+
+        </div>
+
+
+
+
+
+        <div class="container"> 
+
+          <!-- ここからいいねしてください -->
+          <div id="hoge">
+            <%= render partial: "likes/like", locals: { tweet: @tweet, like: @like} %>
+          </div>
+
+
+          <!-- ここからフォーム -->
+          <% if current_user %>
+          <%= form_tag("/tweets/#{@tweet.id}/comments", method: :post) do %>
+          <textarea cols="30" name="text" placeholder="コメントする" rows="2"></textarea>
+          <input type="submit" value="SENT">
+          <% end %>
+          <% end %>
+
+
+          <!-- ここから追記してください -->
+          <div class="comments">
+            <h4>＜コメント一覧＞</h4>
+            <% if @comments %>
+            <% @comments.each do |comment| %>
+            <p>
+              <storng><%= link_to comment.user.nickname, "/users/#{comment.user_id}" %>：</strong>
+                <%= comment.text %>
+
+                <%= comment.created_at.to_s(:published_on) %>
+              </p>
+              <% end %>
+            <% end %>
+          </div>
+
+        </div>
+
+
+
