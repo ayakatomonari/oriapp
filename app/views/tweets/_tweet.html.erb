@@ -19,17 +19,6 @@
     </div>
 
 
-
-    <div>
-      <%= tweet.created_at.to_s(:published_on) %>
-    </div>
-
-    <div>
-      <%= tweet.text%>
-    </div>
-
-
-
     <div class="dropdown">
 
       <!-- ここが表示されるボタン <a>タグでもOK -->
@@ -56,8 +45,18 @@
             <!-- リストここまで -->
 
 
+    <div>
+      <%= tweet.created_at.to_s(:published_on) %>
+    </div>
+
+    <div class="text_post">
+      <%= tweet.text%>
+    </div>
+
           </div>
         </div>
+
+
 
 
 
@@ -75,6 +74,9 @@
             <% end %>
 
           </div>
+
+
+
 
 
         </div>
