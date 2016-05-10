@@ -430,7 +430,7 @@ form {
 .post_content_big{
   @include boxBase(1.2em 0 ,1em);
     
-    width: 70%;
+    width: 100%;
     margin: 30px auto 0px auto;
     position: relative;
     color: #fff;
@@ -464,7 +464,7 @@ form {
 .text_post{
 
   width: 18em;
-  height: 15em;
+  height: 5em;
     background-size: cover;
     background-position: center center;
   border-radius: 20px; 
@@ -476,21 +476,22 @@ form {
 
 .text_post_big{
 
-  @include boxBase(1.2em 0 ,1em);
+  @include boxBase(0 0 ,0);
+
   max-width: 100%;
-  min-height: 10em;
+  min-height: 5em;
     background-size: cover;
     background-position: center center;
   border-radius: 20px; 
   color: black;
   background-color: gray;
     clear: both;
+    padding: 10px 15px;
 
 }
 
 .time_post{
 
-  width: 300px;
   height: 50px;
     background-size: cover;
     background-position: center center;
@@ -501,10 +502,25 @@ form {
 }
 
 .user_image{
-      width: 5.5em;
-      height: 5.5em;
+      width: 5em;
+      height: 5em;
     background: black;
+    float: left;
     // @include boxBase(20px 0 ,30px);
+}
+.center-hoge{
+  float: left;
+  margin-left: 20px;
+  width: 150px;
+  font-size: 14px;
+  padding-top: 10px;
+}
+
+
+.dropdown{
+  width: 76px;
+  float: right;
+
 }
 .user_image_big{
       width: 8em;
@@ -559,13 +575,14 @@ form {
 
 .detail{
     @include boxBase;
-          height: 8em;
+          height:100px;
           max-width: 100%;
-          margin: 1em;
+          margin:0px;
+          padding: 5px 0;
 }
-.col-xs-8{
-  margin: 0 auto;
-}
+// .col-xs-8{
+//   margin: 0 auto;
+// }
 
 footer {
   @include boxBase;

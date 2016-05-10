@@ -1,74 +1,74 @@
 
-<div class="post_content" >
+  <div class="post_content_big" >
 
-  <div class="col-xs-6">
+<div class="detail">
 
-    <div class="col-xs-5">
-      <div class="user_image">
-
-      </div>
-    </div>
-
-    <div class="col-xs-7">
-      <div class="name">
-
-        <a href="/users/<%= tweet.user_id %>">
-          <%= tweet.user.nickname %>
-        </a>
-      </div>
-    </div>
-
-
-    <div class="dropdown">
-
-      <!-- ここが表示されるボタン <a>タグでもOK -->
-      <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown">
-        <%= image_tag 'icon.png' ,width:'20px' %>
-        <span class="caret"></span>
-      </button>
-      <!-- ボタンここまで -->
-
-      <!-- ここはボタンを押すと表示されるリスト -->
-      <ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu1">
-        <li role="presentation"><a role="menuitem" tabindex="-1" href="#">          
-          <%= link_to "詳細", tweet_path(tweet.id), method: :get %></a></li>
-          <% if user_signed_in? && current_user.id == tweet.user_id %>
-          <li role="presentation" class="divider"></li>
-          <li role="presentation"><a role="menuitem" tabindex="-1" href="#">
-            <%= link_to '編集', "/tweets/#{tweet.id}/edit", method: :get %></a></li>
-
-            <li role="presentation"><a role="menuitem" tabindex="-1" href="#">          
-              <%= link_to '削除', "/tweets/#{tweet.id}", method: :delete %></a></li>
-
-              <% end %>
-            </ul>
-            <!-- リストここまで -->
-
-          </div>
-
-          <div class="time_post">
-            <%= tweet.created_at.strftime("%Y年%m月%d日 %H時%M分")%>
-          </div>
-
-          <div class="text_post">
-            <%= tweet.text%>
-          </div>
+      
+        <div class="user_image">
 
         </div>
 
-        <div class="col-xs-6">
 
-          <% if tweet.image? %>
-          <div class="image_post" style="background-image: url(<%= tweet.image %>);"> -->
-          </div>
+      <div class="center-hoge">
+        <div class="name">
 
-          <% else %>
-          <div class="image_post">
-            <%= image_tag tweet.image.url %>
-          </div>
+          <a href="/users/<%= tweet.user_id %>">
+            <%= tweet.user.nickname %>
+          </a>
+        </div>
+            <div class="time_post">
+              <%= tweet.created_at.strftime("%Y年%m月%d日 %H時%M分")%>
+            </div>
 
-          <% end %>
+
+      </div><!--center-hoge-->
+
+      <div class="rigth-hoge">
+      <div class="dropdown">
+
+        <!-- ここが表示されるボタン <a>タグでもOK -->
+        <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown">
+          <%= image_tag 'icon.png' ,width:'20px' %>
+          <span class="caret"></span>
+        </button>
+        <!-- ボタンここまで -->
+
+        <!-- ここはボタンを押すと表示されるリスト -->
+        <ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu1">
+          <li role="presentation"><a role="menuitem" tabindex="-1" href="#">          
+            <%= link_to "詳細", tweet_path(tweet.id), method: :get %></a></li>
+            <% if user_signed_in? && current_user.id == tweet.user_id %>
+            <li role="presentation" class="divider"></li>
+            <li role="presentation"><a role="menuitem" tabindex="-1" href="#">
+              <%= link_to '編集', "/tweets/#{tweet.id}/edit", method: :get %></a></li>
+
+              <li role="presentation"><a role="menuitem" tabindex="-1" href="#">          
+                <%= link_to '削除', "/tweets/#{tweet.id}", method: :delete %></a></li>
+
+                <% end %>
+              </ul>
+              <!-- リストここまで -->
+
+            </div><!--dropdown-->
+          </div><!--right-hoge-->
+         
 
         </div>
 
-      </div>
+            <div class="text_post_big">
+              <%= tweet.text%>
+            </div>
+
+
+            <% if tweet.image? %>
+            <div class="image_post_big" style="background-image: url(<%= tweet.image %>);"> -->
+            </div>
+
+            <% else %>
+            <div class="image_post_big">
+              <%= image_tag tweet.image.url %>
+            </div>
+
+            <% end %>
+
+        </div>
