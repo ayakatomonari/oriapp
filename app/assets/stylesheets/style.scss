@@ -27,6 +27,31 @@ $pink: #F781D8;
 $lightpink: #FBEFF8;
 //mixin
 
+html {
+    font-size : 12px; 
+}
+ 
+@media screen and (min-width : 768px){
+    html{ font-size : 14px;}
+}
+ 
+@media screen and (min-width : 1024px) {
+    html{ font-size : 16px;} 
+}
+
+html {
+    font-size : 75%; 
+}
+ 
+@media screen and (min-width : 768px){
+    html{ font-size : 87.5%;} 
+}
+ 
+@media screen and (min-width : 1024px) {
+    html{ font-size : 100%}; 
+}
+
+
 @mixin boxBase($margin: 30px auto, $padding: 10px) {
   margin: $margin;
   padding: $padding;
@@ -42,6 +67,8 @@ body,html {
   height: 100%;
   // background-color: $lightGray;
   background-color: $lightpink;
+  background-image: url(back.jpg);
+
 }
 
 body {
@@ -385,6 +412,7 @@ form {
     background-position: center center;
     border-radius: 3px;
     box-shadow: 0 0 10px rgba($black,0.2);
+   background-color: $lightpink;
 
 }
 
@@ -404,7 +432,19 @@ form {
     background-size: cover;
     background-position: center center;
   border-radius: 20px; 
-  color: 999999;
+  color: black;
+
+}
+
+.time_post{
+
+  width: 300px;
+  height: 50px;
+    background-size: cover;
+    background-position: center center;
+  border-radius: 20px; 
+  color: black;
+  font-size: 1em;
 
 }
 
@@ -455,7 +495,9 @@ form {
       }
     }
 
-
+.tab_color{
+  background-color: lightpink;
+}
 
 footer {
   @include boxBase;
