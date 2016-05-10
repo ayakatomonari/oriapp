@@ -12,6 +12,7 @@ class UsersController < ApplicationController
     user.comments.each do |comment|
       @tweets_comments << comment.tweet
     end
+    @tweets_comments.reverse!
 
 # like表示用
     @tweets_likes = []
@@ -20,6 +21,7 @@ class UsersController < ApplicationController
       if like.tweet_id?
         @tweets_likes << like.tweet
       end
+    @tweets_likes.reverse!
 end
 
 

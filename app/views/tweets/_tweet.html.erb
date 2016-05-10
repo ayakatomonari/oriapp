@@ -30,50 +30,51 @@
 
 
 
-<div class="dropdown">
+    <div class="dropdown">
 
-  <!-- ここが表示されるボタン <a>タグでもOK -->
-  <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown">
-    <%= image_tag 'icon.png' ,width:'20px' %>
-    <span class="caret"></span>
-  </button>
-  <!-- ボタンここまで -->
-  
-  <!-- ここはボタンを押すと表示されるリスト -->
-  <ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu1">
-    <li role="presentation"><a role="menuitem" tabindex="-1" href="#">          
-    <%= link_to "詳細", tweet_path(tweet.id), method: :get %></a></li>
-   <% if user_signed_in? && current_user.id == tweet.user_id %>
-    <li role="presentation" class="divider"></li>
-    <li role="presentation"><a role="menuitem" tabindex="-1" href="#">
-    <%= link_to '編集', "/tweets/#{tweet.id}/edit", method: :get %></a></li>
+      <!-- ここが表示されるボタン <a>タグでもOK -->
+      <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown">
+        <%= image_tag 'icon.png' ,width:'20px' %>
+        <span class="caret"></span>
+      </button>
+      <!-- ボタンここまで -->
 
-    <li role="presentation"><a role="menuitem" tabindex="-1" href="#">          
-    <%= link_to '削除', "/tweets/#{tweet.id}", method: :delete %></a></li>
+      <!-- ここはボタンを押すと表示されるリスト -->
+      <ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu1">
+        <li role="presentation"><a role="menuitem" tabindex="-1" href="#">          
+          <%= link_to "詳細", tweet_path(tweet.id), method: :get %></a></li>
+          <% if user_signed_in? && current_user.id == tweet.user_id %>
+          <li role="presentation" class="divider"></li>
+          <li role="presentation"><a role="menuitem" tabindex="-1" href="#">
+            <%= link_to '編集', "/tweets/#{tweet.id}/edit", method: :get %></a></li>
 
-    <% end %>
-  </ul>
-  <!-- リストここまで -->
+            <li role="presentation"><a role="menuitem" tabindex="-1" href="#">          
+              <%= link_to '削除', "/tweets/#{tweet.id}", method: :delete %></a></li>
 
-
-  </div>
+              <% end %>
+            </ul>
+            <!-- リストここまで -->
 
 
-
-  <div class="col-xs-6">
-
-    <% if tweet.image? %>
-    <div class="image_post" style="background-image: url(<%= tweet.image %>);"> -->
-    </div>
-
-    <% else %>
-    <div class="image_post">
-      <%= image_tag tweet.image.url %>
-    </div>
-
-    <% end %>
-
-  </div>
+          </div>
+        </div>
 
 
-</div>
+
+          <div class="col-xs-6">
+
+            <% if tweet.image? %>
+            <div class="image_post" style="background-image: url(<%= tweet.image %>);"> -->
+            </div>
+
+            <% else %>
+            <div class="image_post">
+              <%= image_tag tweet.image.url %>
+            </div>
+
+            <% end %>
+
+          </div>
+
+
+        </div>
