@@ -72,3 +72,4 @@ gem 'twitter-bootstrap-rails' # Bootstrapの本体
 #omniauth
 gem 'omniauth-facebook'
 gem 'omniauth-twitter'
+gem 'acts-as-taggable-on', '~> 3.4'
