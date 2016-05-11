@@ -20,7 +20,9 @@
 
 <div class="clearfix">
 
-
+<div class="test">
+<p><%= @nickname %>さんのページ </p> 
+  </div>
 
   <ul id="myTab" class="nav nav-tabs">
     <li class="active"><a href="#tab01" data-toggle="tab">
@@ -41,7 +43,6 @@
 
   <div id="myTabContent" class="tab-content">
     <div class="tab-pane fade in active" id="tab01">
-      <p><%= @nickname %>さんの投稿一覧 </p> 
       <% @tweets.each do |tweet| %>
       <%= render partial: "tweets/tweet", locals: { tweet: tweet } %>
       <% end %>
@@ -49,7 +50,6 @@
 
     <div class="tab-pane fade in" id="tab02">
       <div class="contents row">
-        <p><%= @nickname %>さんがコメントした投稿一覧</p>
         <% @tweets_comments.each do |tweet| %>
         <%= render partial: "tweets/tweet", locals: { tweet: tweet } %>
         <% end %>
@@ -59,7 +59,6 @@
 
     <div class="tab-pane fade in" id="tab03">    
       <div class="contents row">
-        <p><%= @nickname %>さんがいいねした投稿一覧</p>
         <% @tweets_likes.each do |tweet| %>
         <%= render partial: "tweets/tweet", locals: { tweet: tweet } %>
         <% end %>
