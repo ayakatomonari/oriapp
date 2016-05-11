@@ -102,6 +102,7 @@ line-height: 1.57;
 }
 
 
+
 .panel td{
   width: 33%;
   border:1px solid #ededed;
@@ -169,7 +170,16 @@ a {
 
 }
 
+#myTab .nav .nav-tabs ul{
+  width: 100%
+  li{
+    width:33%;
+  }
+}
 
+.mypage-nav{
+  width: 100%;
+}
 
 
 

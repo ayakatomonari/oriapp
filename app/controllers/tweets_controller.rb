@@ -39,7 +39,7 @@ class TweetsController < ApplicationController
     def show
       @tweet = Tweet.find(params[:id])
       @comments = @tweet.comments.includes(:user)
-      @like = Like.find_by(user_id: current_user.id, tweet_id: params[:tweet_id])
+      @like = Like.find_by(user_id: current_user.id, tweet_id: params[:id])
 
 
     end
