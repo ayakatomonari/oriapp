@@ -392,7 +392,7 @@ form {
   box-shadow: 0 0 10px rgba($black,0.2);
   background-color: $white;
   box-sizing: border-box;
-    width: 70%;
+    width: 100%;
     margin: 30px auto 0px auto;
 
 }
@@ -444,7 +444,7 @@ form {
 
 .image_post{
   width: 18em;
-  height: 22em;
+
     background-size: cover;
     background-position: center center;
   border-radius: 1.5em; 
@@ -454,7 +454,7 @@ form {
 .image_post_big{
   @include boxBase(1.2em 0 ,1.2em);
   max-width: 100%;
-  height: 22em;
+  height: 20em;
     background-size: cover;
     background-position: center center;
   border-radius: 1.5em; 
@@ -569,9 +569,9 @@ form {
       }
     }
 
-.tab_color{
-  background-color: lightpink;
-}
+// .tab_color{
+//   background-color: lightpink;
+// }
 
 .detail{
     @include boxBase;
@@ -583,6 +583,11 @@ form {
 // .col-xs-8{
 //   margin: 0 auto;
 // }
+
+.test{
+  background-color: black;
+  height: 50px;
+}
 
 footer {
   @include boxBase;

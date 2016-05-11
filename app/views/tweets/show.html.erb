@@ -1,17 +1,18 @@
 <div class="contents row">
 
 
+
   <div class="post_content_big" >
 
 <div class="detail">
 
-      <div class="col-xs-3">
-        <div class="user_image_big">
+      
+        <div class="user_image">
 
         </div>
-      </div>
 
-      <div class="col-xs-7">
+
+      <div class="center-hoge">
         <div class="name">
 
           <a href="/users/<%= @tweet.user_id %>">
@@ -23,9 +24,9 @@
             </div>
 
 
-      </div>
+      </div><!--center-hoge-->
 
-      <div class="col-xs-2">
+      <div class="rigth-hoge">
       <div class="dropdown">
 
         <!-- ここが表示されるボタン <a>タグでもOK -->
@@ -51,8 +52,9 @@
               </ul>
               <!-- リストここまで -->
 
-            </div>
-          </div>
+            </div><!--dropdown-->
+          </div><!--right-hoge-->
+         
 
         </div>
 
@@ -66,7 +68,7 @@
             </div>
 
             <% else %>
-            <div class="image_post_big">
+            <div class="image_post">
               <%= image_tag @tweet.image.url %>
             </div>
 
@@ -75,8 +77,7 @@
         </div>
 
 
-
-
+<div class="contents row">
 
         <div class="container"> 
 
@@ -113,4 +114,5 @@
         </div>
 
       </div>
+    </div>
 
