@@ -25,6 +25,8 @@ class UsersController < ApplicationController
 end
 
 
+
+
   end
 
 
@@ -38,6 +40,18 @@ end
 
   end
 
+
+  def edit
+  end
+
+  def update
+    current_user.update(update_params)
+  end
+
+    private
+  def update_params
+    params.require(:user).permit(:image)
+  end
 
 
   end

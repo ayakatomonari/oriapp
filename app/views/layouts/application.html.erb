@@ -33,6 +33,7 @@
               <li>
                 <a href="/users/<%= current_user.id %>">マイページ</a>
                 <%= link_to "ログアウト", destroy_user_session_path, method: :delete %>
+                <%= link_to "プロフィール編集", edit_user_path(current_user) %>
               </li>
             </ul>
           </span>

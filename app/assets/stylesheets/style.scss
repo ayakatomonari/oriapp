@@ -504,9 +504,10 @@ form {
 .user_image{
       width: 5em;
       height: 5em;
-    background: black;
     float: left;
-    // @include boxBase(20px 0 ,30px);
+    background-size: cover;
+    background-position: center center;
+  border-radius: 1.5em; 
 }
 .center-hoge{
   float: left;

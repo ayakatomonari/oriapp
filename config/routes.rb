@@ -16,7 +16,7 @@
     resources :comments, only: [:create]
     resources :likes, only: [:create, :destroy]
   end
-  resources :users, only: [:show]
+    resources :users, only: [:show, :edit, :update]
 
 get 'users/:id/comments' => 'comments#show'
 get 'users/:id/likes' => 'likes#show'

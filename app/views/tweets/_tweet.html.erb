@@ -4,8 +4,8 @@
 <div class="detail">
 
       
-        <div class="user_image">
-
+      
+            <div class="user_image" style="background-image: url(<%= tweet.user.image %>);"> -->
         </div>
 
 
@@ -66,9 +66,15 @@
 
             <% else %>
             <div class="image_post_big">
+
               <%= image_tag tweet.image.url %>
             </div>
 
             <% end %>
+
+
+
+
+
 
         </div>
