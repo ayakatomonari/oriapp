@@ -44,7 +44,7 @@
   <div id="myTabContent" class="tab-content">
     <div class="tab-pane fade in active" id="tab01">
       <% @tweets.each do |tweet| %>
-      <%= render partial: "tweets/tweet", locals: { tweet: tweet } %>
+      <%= render partial: "tweets/tweet", locals: { tweet: tweet ,comments: tweet.comments} %>
       <% end %>
     </div>
 

@@ -15,3 +15,14 @@
 //= require twitter/bootstrap
 //= require turbolinks
 //= require_tree .
+
+$(function() {
+  $(".panel-btn").click(function(){
+    var clickPanel = $("+.panel",this);
+    clickPanel.toggle();
+    $(".panel").not(clickPanel).slideUp(0);
+    
+    
+    return false;
+  });
+});

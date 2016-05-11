@@ -47,6 +47,8 @@ class TweetsController < ApplicationController
 
 
 
+
+
   private
   def tweet_params
       # params.permit(:text, :imege)

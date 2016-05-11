@@ -40,7 +40,7 @@
             <li role="presentation"><a role="menuitem" tabindex="-1" href="#">
               <%= link_to '編集', "/tweets/#{tweet.id}/edit", method: :get %></a></li>
 
-              <li role="presentation"><a role="menuitem" tabindex="-1" href="#">          
+              <li role="presentation"><a role="menuitem" tabindex="-1" href="#">
                 <%= link_to '削除', "/tweets/#{tweet.id}", method: :delete %></a></li>
 
                 <% end %>
@@ -49,7 +49,7 @@
 
             </div><!--dropdown-->
           </div><!--right-hoge-->
-         
+
 
         </div>
 
@@ -61,7 +61,7 @@
             <% if tweet.image? %>
             <div class="image_post_big" style="background-image: url(<%= tweet.image %>);"> -->
 
-            
+
             </div>
 
             <% else %>
@@ -72,6 +72,9 @@
 
             <% end %>
 
+            <div class="text_post_big">
+              コメント数::<%= tweet%>
+            </div>
 
 
 

@@ -2,6 +2,7 @@
 <html>
   <head>
     <title>Title!!!!!</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track' => true %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
     <%= csrf_meta_tags %>
@@ -24,40 +25,54 @@
 
   <body>
    <header class="header">
-    <div class="header__bar row">
-      <h1 class="grid-6"><a href="/">Title!!!!!</a></h1>
+    
+      <h1 class=""><a href="/">Title!!!!!</a></h1>
+      <div class="header-in">
       <% if user_signed_in? %>
-        <div class="user_nav grid-6">
-          <span><%= current_user.nickname %>
-            <ul class="user__info">
-              <li>
-                <a href="/users/<%= current_user.id %>">マイページ</a>
-                <%= link_to "ログアウト", destroy_user_session_path, method: :delete %>
-                <%= link_to "プロフィール編集", edit_user_path(current_user) %>
-              </li>
-            </ul>
-          </span>
-          <a class="post" href="/tweets/new">投稿する</a>
+      <div class="float-right">
+          <div class="user_image_s" style="background-image: url(<%= current_user.image %>);">
         </div>
+         <a style="background: #fff;color: #111;float: left;text-align: left" class="panel-btn" ><%= current_user.nickname %></a>
+          <div class="panel">
+<table>
+<tbody>
+<tr>
+<td>
+ <a href="/users/<%= current_user.id %>"><%= fa_icon 'user spin',class:'red' %>マイページ</a>
+  </td>
+  
+   <td>
+     <%= link_to "ユーザー情報", edit_user_path(current_user) %></td>
+     <td>
+   <%= link_to "ログアウト", destroy_user_session_path, method: :delete %></td>
+   </tr>
+ </tbody>
+ </table>
+      </div>
+        <div class="float-r-r">
+       
+          
+            <a href="/tweets/new">投稿する</a>
+        
       <% else %>
-        <div class="grid-6">
-          <%= link_to "ログイン", new_user_session_path, :class => 'post' %>
-          <%= link_to "新規登録", new_user_registration_path, :class => 'post' %>
-        </div>
+
+      <%= link_to "ログイン", new_user_session_path, :class => 'post' %>
+      <%= link_to "新規登録", new_user_registration_path, :class => 'post' %>
+            
+
       <% end %>
-    </div>
-
-
-
-
+    </div><!--float-r-r-->
+  </div>
+  </div>
 
 
 
 
   </header>
 
-
+<div class="cleafix">
     <%= yield %>
+  </div><!--cleafix-->
 
     <footer>
       <p>

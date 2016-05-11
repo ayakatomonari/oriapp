@@ -67,7 +67,7 @@
             </div>
 
             <% else %>
-            <div class="image_post">
+            <div class="image_post_big">
               <%= image_tag @tweet.image.url %>
             </div>
 
@@ -84,6 +84,10 @@
           <div id="hoge">
             <%= render partial: "likes/like", locals: { tweet: @tweet, like: @like} %>
           </div>
+
+            <div class="text_post_big">
+              コメント数:<%= @comments.length%>
+            </div>
 
 
           <!-- ここからフォーム -->
