@@ -114,28 +114,56 @@ line-height: 1.57;
 
 .haguruma {
   display: none;
+  position: absolute;
+
+
+width: 100%;
+  
+}
+
+.haguruma-arond{
+  padding:20px 20px 0 0;
+  position: relative;
+  text-align: right;
   width: 30%;
-  background: #fff;
-
-  
-}
-.haguruma table{
-  width: 100%;
-  z-index: 950;
-  
-}
-.hagurumaa{
-  background: red;
+  float: right;
 }
 
 
 
-.haguruma td{
-  width: 33%;
-  border:1px solid #ededed;
+.haguruma ul{
+  margin: 0 0 0 auto;
+  width: 65%;
+  border:2px solid #f781d8;
+ 
+
+  li{
+  text-align: center;
+      background:rgba(255,255,255,0.8);
+      border:1px solid #f781d8;
+      font-size: 12px;
+      padding: 7px;
+      color: #666;
+  }
+
+
+
 
 }
 
+.username{
+  padding: 16px 0 0 10px;
+float: left;
+}
+
+.usertime{
+  float: right;
+ color: #aaa;
+  font-size: 13px;
+  padding-right: 55px;
+  margin-top:0px;
+  margin-bottom: 25px;
+}
 
 
 
@@ -621,7 +649,7 @@ form {
 }
 
 .image_post_big{
-  @include boxBase(1.2em 0 ,1.2em);
+  
   max-width: 100%;
   height: 15em;
     background-size: cover;
@@ -648,17 +676,77 @@ form {
   @include boxBase(0 0 ,0);
 
   max-width: 100%;
-  min-height: 5em;
+
     background-size: cover;
     background-position: center center;
   border-radius: 20px; 
   color: black;
-  background-color: gray;
+  
     clear: both;
-    padding: 10px 15px;
+    padding: 15px 10px 15px 10px;
+
+    font-size: 12px;
+
 
 }
 
+
+// 右
+ .login_top1{
+
+width: 30%;
+  text-align: center;
+  background:#f781d8;
+  padding-bottom: 1px;
+  a{
+    color: #fff;
+  }
+    float: right;
+    margin-left: 5px;
+    margin-top: 0px;
+    margin-bottom: 0px;
+    margin-right: 30px;
+
+
+  padding: 8px 8px;
+
+ border-radius: 5px;
+ font-size: 14px;
+
+
+}
+// 左
+ .login_top2{
+
+width: 30%;
+  text-align: center;
+  background:#f781d8;
+  padding-bottom: 1px;
+  a{
+    color: #fff;
+  }
+      margin-right: 5px;
+          margin-top: 0px;
+    margin-bottom: 0px;
+        margin-left: 30px;
+
+  padding: 8px 8px;
+
+ border-radius: 5px;
+ font-size: 14px;
+
+
+}
+
+
+.line{
+ 
+  width: 100%;
+ 
+ margin: 80px auto 0 auto;
+ border-bottom:1px dashed #aaa;
+
+}
 .time_post{
 
   height: 50px;
@@ -709,7 +797,8 @@ header h1{
 }
 
 .header-in{
-  padding: 10px 20px 20px 20px;
+  padding: 10px 20px 0px 20px;
+
 }
 
 .dropdown{
