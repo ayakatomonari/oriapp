@@ -53,8 +53,21 @@
        
           
             <a href="/tweets/new">投稿する</a>
-        
+          </div><!--float-r-r-->
+
+
+<% if controller.controller_name == "users" && controller.action_name == "show"%>
+
+          <div class="testtest">
+           <small>現在のツイート数</small>
+        </div>
+
+        <%end%>
+
+
       <% else %>
+
+ <div class="float-r-r">
 
       <%= link_to "ログイン", new_user_session_path, :class => 'post' %>
       <%= link_to "新規登録", new_user_registration_path, :class => 'post' %>

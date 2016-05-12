@@ -88,16 +88,18 @@ line-height: 1.57;
 
 .panel {
   display: none;
-  position: absolute;
+  position: fixed;
   top: 90px;
   left: 0%;
-  z-index: 1000;
+  z-index: 2000;
   width: 100%;
   background: #fff;
+
   
 }
 .panel table{
   width: 100%;
+  z-index: 950;
   
 }
 
@@ -108,6 +110,34 @@ line-height: 1.57;
   border:1px solid #ededed;
 
 }
+
+
+.haguruma {
+  display: none;
+  width: 30%;
+  background: #fff;
+
+  
+}
+.haguruma table{
+  width: 100%;
+  z-index: 950;
+  
+}
+.hagurumaa{
+  background: red;
+}
+
+
+
+.haguruma td{
+  width: 33%;
+  border:1px solid #ededed;
+
+}
+
+
+
 
 
 .float-right .panel a{
@@ -159,7 +189,9 @@ a {
   float:left;
 }
 
-
+.disnon{
+  display: none;
+}
 
 .float-right a{
   background: #f781d8;
@@ -181,6 +213,53 @@ a {
   width: 100%;
 }
 
+.mypage {
+  margin: 0 auto 5px auto;
+  width: 97%;
+}
+
+.mypage table{
+  width: 100%;
+  background: #fff;
+  border-radius: 7px;
+  
+   
+
+}
+
+.mypage table{
+  border-collapse:separate;
+ 
+ 
+}
+
+
+
+
+
+.mypage td{
+  width: 33%;
+ border:1px solid #f781d8;
+  text-align: center;
+  padding: 5px;
+}
+
+.mypage td:nth-child(1){
+  border-top-left-radius: 7px;
+  border-bottom-left-radius: 7px;
+  
+}
+
+.mypage td:nth-child(3){
+  border-top-right-radius: 7px;
+  border-bottom-right-radius: 7px;
+  
+}
+
+.select{
+  background: #f781d8;
+  color: #fff;
+}
 
 
 .float-right{
@@ -311,7 +390,7 @@ header.header {
   background: url(https://dl.dropboxusercontent.com/u/5840617/DeathtoStock_Wired3.jpg);
   background-size: cover;
   .contents {
-    position: absolute;
+    position: relative;
     left: 0;
     top: 30%;
     bottom: 0;
@@ -350,7 +429,7 @@ div.contents.row {
     box-shadow: 0 0 10px rgba($black,0.2);
     &:after {
       content: '';
-      position: absolute;
+      position: relative;
       top: 0;
       bottom: 0;
       left: 0;
@@ -361,7 +440,7 @@ div.contents.row {
       border-radius: 3px;
     }
     .more {
-      position: absolute;
+      position: relative;
       cursor: pointer;
       top: 20px;
       right: 30px;
@@ -373,7 +452,7 @@ div.contents.row {
         display: block;
       }
       ul.more_list {
-        position: absolute;
+        position: relative;
         text-align: left;
         width: 80px;
         right: 0;
@@ -401,7 +480,7 @@ div.contents.row {
     }
     p {
       @extend .serif;
-      position: absolute;
+      position: relative;
       left: 30px;
       right: 100px;
       bottom: 30px;
@@ -412,7 +491,7 @@ div.contents.row {
       text-shadow: 0 0 2px #000, 0 0 1px #000, 0 0 1px #000;
     }
     span.name {
-      position: absolute;
+      position: relative;
       right: 30px;
       bottom: 30px;
       z-index: 2;
@@ -477,6 +556,7 @@ form {
   box-sizing: border-box;
     width: 100%;
     margin: 30px auto 0px auto;
+    margin-top: 70px
 
 }
 .comments {
@@ -489,6 +569,10 @@ form {
       text-decoration: underline;
     }
   }
+}
+
+.mypage_margin{
+  margin-top: 150px;
 }
 
 
@@ -695,12 +779,62 @@ header h1{
 //   margin: 0 auto;
 // }
 
-.test{
-  background-color: black;
-  height: 50px;
+.testtest{
+  position: fixed;
+  left: 0px;
+  top: 90px;
+  background: #fff;
+  width: 100%;
+  height: 41px;
   text-align: center;
-  vertical-align: middle;//きかないー
+  }
+
+.test{
+
+  position:fixed;
+  margin-top: 70px;
+  background-color: #fff;
+  z-index:800; 
+  text-align: center;
+  width: 100%;
+
 }
+
+//////ドロップダウン用
+
+ul{
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    color: #fff;
+}
+ul#menu li{
+    float: left;
+    position: relative;
+    margin: 0;
+    padding: 5px;
+    width: 200px;
+    background-color: #555555;
+    display: block;
+}
+ul.child{
+        display: none;
+        position: absolute;
+        margin-left: -5px;
+        padding: 0;
+}
+ul.child li a{
+    padding: 5px 10px;
+    margin-left: -5px;
+    margin-right: -5px;
+    margin-bottom: -5px;
+    display: block;
+    color: #fff;
+}
+li a:hover{
+    background: #ff0000;
+}
+//////ドロップダウン用end
 
 footer {
   @include boxBase;

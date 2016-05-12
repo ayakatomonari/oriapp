@@ -26,3 +26,27 @@ $(function() {
     return false;
   });
 });
+
+$(function() {
+  $(".haguruma-btn").click(function(){
+    var clickPanel = $("+.haguruma",this);
+    clickPanel.toggle();
+    $(".haguruma").not(clickPanel).slideUp(0);
+    
+    
+    return false;
+  });
+});
+
+
+$(function() {
+    $("#tab td").click(function() {
+        var num = $("#tab td").index(this);
+        $(".content_wrap").addClass('disnon');
+        $(".content_wrap").eq(num).removeClass('disnon');
+        $("#tab td").removeClass('select');
+        $(this).addClass('select')
+    });
+});
+
+

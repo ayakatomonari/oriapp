@@ -1,4 +1,4 @@
-<div class="contents row">
+
 
 <!-- <ul class="nav nav-tabs">
 <li class="active"><a href="#menu1" data-toggle="tab">menu 1</a></li>
@@ -18,54 +18,69 @@
 -->
 
 
-<div class="clearfix">
+
 
 <div class="test">
 <p><%= @nickname %>さんのページ </p> 
-  </div>
-  <div class="mypage-nav">
-  <ul id="myTab" class="nav nav-tabs">
-    <li class="active"><a href="#tab01" data-toggle="tab">
-    <span class="tab_color">
-    投稿
-    <%= image_tag 'enpitsu_blue.png' ,width:'20px' %>
-  </span>
-    </a></li>
-    <li><a href="#tab02" data-toggle="tab">
-    コメント
-    <%= image_tag 'comment.png' ,width:'20px' %>
-    </a></li>
-    <li><a href="#tab03" data-toggle="tab">
-    いいね
-    <%= image_tag 'iine.png' ,width:'20px' %>
-    </a></li>
-  </ul>
-  </div><!--mypage-nav-->
-  <div id="myTabContent" class="tab-content">
-    <div class="tab-pane fade in active" id="tab01">
+ 
+
+
+
+
+<div class="mypage">
+
+<table id="tab">
+<tbody>
+<tr>
+  <td class="select">tabu1</td>
+  <td>tabu2</td>
+  <td>tabu3</td>
+  </tr>
+  </tbody>
+  </table>
+ </div><!--mypage-->
+  </div><!--test-->
+
+
+
+ <div class="contents row">
+
+
+<div class="content_wrap"> 
+<div class="mypage_margin">
       <% @tweets.each do |tweet| %>
       <%= render partial: "tweets/tweet", locals: { tweet: tweet ,comments: tweet.comments} %>
       <% end %>
-    </div>
+  </div>
+  </div>
 
-    <div class="tab-pane fade in" id="tab02">
-      <div class="contents row">
+<div class="content_wrap disnon">
+<div class="mypage_margin">
         <% @tweets_comments.each do |tweet| %>
         <%= render partial: "tweets/tweet", locals: { tweet: tweet ,comments: tweet.comments} %>
         <% end %>
       </div>
-    </div>
-
-
-    <div class="tab-pane fade in" id="tab03">    
-      <div class="contents row">
+</div>
+<div class="content_wrap disnon">
+<div class="mypage_margin">
         <% @tweets_likes.each do |tweet| %>
         <%= render partial: "tweets/tweet", locals: { tweet: tweet ,comments: tweet.comments} %>
         <% end %>
       </div>
-    </div>
 
-  </div>
+      
+</div>
+
+
+
+
+
+
+
+
+
+
+
 
 </div>
 
