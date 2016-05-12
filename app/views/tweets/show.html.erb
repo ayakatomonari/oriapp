@@ -2,76 +2,76 @@
 
 
 
-  <div class="post_content_big" >
 
-<div class="detail">
+<div class="post_content_big" >
 
-      
-            <div class="user_image" style="background-image: url(<%= @tweet.user.image %>);"> -->
+  <div class="">
+
+    <div class="user_image" style="background-image: url(<%= @tweet.user.image %>);"> -->
+    </div>
+    <div class="username">
+    <a href="/users/<%= @tweet.user_id %>">
+        @<%= @tweet.user.nickname %>
+      </a>
+    </div>
+    <div class="haguruma-arond">
+    <a class="haguruma-btn" style="font-size: 12px;" ><%= fa_icon 'ellipsis-v 2x' %></a>
+
+
+    <div class="haguruma">
+     <ul>
+      <li>
+       <%= fa_icon 'pencil' %><%= link_to "詳細", tweet_path(@tweet.id), method: :get %>
+     </li>
+
+     <li>
+       <%= fa_icon 'pencil' %><%= link_to '編集', "/tweets/#{@tweet.id}/edit", method: :get %></li>
+       <li>
+         <%= fa_icon 'trash-o' %><%= link_to '削除', "/tweets/#{@tweet.id}", method: :delete %></li>
+
+       </ul>
      </div>
 
+  </div><!-- haguruma-arond -->
 
-      <div class="center-hoge">
-        <div class="name">
+     <div class="usertime">
 
-          <a href="/users/<%= @tweet.user_id %>">
-            <%= @tweet.user.nickname %>
-          </a>
-        </div>
-            <div class="time_post">
-              <%= @tweet.created_at.strftime("%Y年%m月%d日 %H時%M分")%>
-            </div>
+      <%= @tweet.created_at.strftime("%Y年%m月%d日 %H時%M分")%>
+    </div>
 
+  </div><!--detail-->
+  <div class="line clearfix"></div>
 
-      </div><!--center-hoge-->
+  <div class="text_post_big clearfix">
 
-      <div class="rigth-hoge">
-      <div class="dropdown">
+<%= @tweet.text %>
+    
 
-        <!-- ここが表示されるボタン <a>タグでもOK -->
-        <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown">
-          <%= image_tag 'icon.png' ,width:'20px' %>
-          <span class="caret"></span>
-        </button>
-        <!-- ボタンここまで -->
-
-        <!-- ここはボタンを押すと表示されるリスト -->
-        <ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu1">
-          <li role="presentation"><a role="menuitem" tabindex="-1" href="#">          
-            <%= link_to "詳細", tweet_path(@tweet.id), method: :get %></a></li>
-            <% if user_signed_in? && current_user.id == @tweet.user_id %>
-            <li role="presentation" class="divider"></li>
-            <li role="presentation"><a role="menuitem" tabindex="-1" href="#">
-              <%= link_to '編集', "/tweets/#{@tweet.id}/edit", method: :get %></a></li>
-
-              <li role="presentation"><a role="menuitem" tabindex="-1" href="#">          
-                <%= link_to '削除', "/tweets/#{@tweet.id}", method: :delete %></a></li>
-
-                <% end %>
-              </ul>
-              <!-- リストここまで -->
-
-            </div><!--dropdown-->
-          </div><!--right-hoge-->
-         
-
-        </div>
-
-            <div class="text_post_big">
-              <%= @tweet.text%>
-            </div>
+  </div>
 
 
-            <% if @tweet.image? %>
-            <div class="image_post_big" style="background-image: url(<%= @tweet.image %>);"> -->
-            </div>
+<div class="image_post2">
+<%= image_tag @tweet.image.url %>
+  </div>
 
-            <% else %>
-            <div class="image_post_big">
-              <%= image_tag @tweet.image.url %>
-            </div>
+   
+  <% if @tweet.image? %>
+  <div class="image_post" style="background-image: url(<%= @tweet.image %>);"> -->
 
-            <% end %>
+
+  </div>
+
+  <% else %>
+ 
+
+  <% end %>
+
+  <div class="text_post_big">
+    コメント数::<%= @tweet%>
+  </div>
+
+
+</div>
 
         </div>
 
