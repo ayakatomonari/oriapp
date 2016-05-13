@@ -50,15 +50,12 @@
   </div>
 
 
+
+
+
+  <% if @tweet.image? %>
 <div class="image_post2">
 <%= image_tag @tweet.image.url %>
-  </div>
-
-   
-  <% if @tweet.image? %>
-  <div class="image_post" style="background-image: url(<%= @tweet.image %>);"> -->
-
-
   </div>
 
   <% else %>
