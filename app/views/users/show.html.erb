@@ -21,72 +21,70 @@
 
 
 <div class="test">
-<p><%= @nickname %>さんのページ </p> 
- 
+  <p><%= @nickname %>さんのページ </p> 
 
 
 
 
-<div class="mypage">
 
-<table id="tab">
-<tbody>
-<tr>
-  <td class="select">投稿<%= fa_icon 'pencil' %></td>
-  <td>コメント<%= fa_icon 'comments' %></td>
-  <td>いいね<%= fa_icon 'heart' %></td>
-  </tr>
-  </tbody>
-  </table>
- </div><!--mypage-->
-  </div><!--test-->
+  <div class="mypage">
 
-
-
- <div class="contents row">
+    <table id="tab">
+      <tbody>
+        <tr>
+          <td class="select">投稿<%= fa_icon 'pencil' %></td>
+          <td>コメント<%= fa_icon 'comments' %></td>
+          <td>いいね<%= fa_icon 'heart' %></td>
+        </tr>
+      </tbody>
+    </table>
+  </div><!--mypage-->
+</div><!--test-->
 
 
-<div class="content_wrap"> 
-<div class="mypage_margin">
+
+<div class="contents row">
+
+
+  <div class="content_wrap"> 
+    <div class="mypage_margin">
       <% @tweets.each do |tweet| %>
-  
-     <%=  @comments = tweet.comments.includes(:user)%>
-     <%=  @like = Like.find_by(user_id: current_user.id, tweet_id: tweet.id)%>
 
-    <%= render partial: "tweets/tweet", locals: { tweet: tweet ,comments: @comments ,like: @like } %>
+      <%=  @comments = tweet.comments.includes(:user)%>
+      <%=  @like = Like.find_by(user_id: current_user.id, tweet_id: tweet.id)%>
+
+      <%= render partial: "tweets/tweet", locals: { tweet: tweet ,comments: @comments ,like: @like } %>
 
       <% end %>
+    </div>
   </div>
+
+  <div class="content_wrap disnon">
+    <div class="mypage_margin">
+      <% @tweets_comments.each do |tweet| %>
+
+      <%=  @comments = tweet.comments.includes(:user)%>
+      <%=  @like = Like.find_by(user_id: current_user.id, tweet_id: tweet.id)%>
+
+      <%= render partial: "tweets/tweet", locals: { tweet: tweet ,comments: @comments ,like: @like } %>
+
+      <% end %>
+    </div>
   </div>
+  <div class="content_wrap disnon">
+    <div class="mypage_margin">
+      <% @tweets_likes.each do |tweet| %>
 
-<div class="content_wrap disnon">
-<div class="mypage_margin">
-        <% @tweets_comments.each do |tweet| %>
-  
-     <%=  @comments = tweet.comments.includes(:user)%>
-     <%=  @like = Like.find_by(user_id: current_user.id, tweet_id: tweet.id)%>
+      <%=  @comments = tweet.comments.includes(:user)%>
+      <%=  @like = Like.find_by(user_id: current_user.id, tweet_id: tweet.id)%>
 
-    <%= render partial: "tweets/tweet", locals: { tweet: tweet ,comments: @comments ,like: @like } %>
+      <%= render partial: "tweets/tweet", locals: { tweet: tweet ,comments: @comments ,like: @like } %>
 
-        <% end %>
-      </div>
-</div>
-<div class="content_wrap disnon">
-<div class="mypage_margin">
-        <% @tweets_likes.each do |tweet| %>
-    
-     <%=  @comments = tweet.comments.includes(:user)%>
-     <%=  @like = Like.find_by(user_id: current_user.id, tweet_id: tweet.id)%>
-
-    <%= render partial: "tweets/tweet", locals: { tweet: tweet ,comments: @comments ,like: @like } %>
-
-        <% end %>
-      </div>
-
-      
-</div>
+      <% end %>
+    </div>
 
 
+  </div>
 
 
 

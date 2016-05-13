@@ -74,5 +74,6 @@ gem 'omniauth-facebook'
 gem 'omniauth-twitter'
 # gem 'acts-as-taggable-on', '~> 3.4'
 # gem 'acts-as-taggable-on'
+gem 'rails_12factor', group: :production
 
 gem 'font-awesome-rails'
