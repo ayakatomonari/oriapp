@@ -3,116 +3,111 @@
 
 
 
-<div class="post_content_big" >
+  <div class="post_content_big" >
 
-  <div class="">
+    <div class="">
 
-    <div class="user_image" style="background-image: url(<%= @tweet.user.image %>);"> -->
+      <div class="user_image" style="background-image: url(<%= @tweet.user.image %>);"> -->
+      </div>
+      <div class="username">
+        <a href="/users/<%= @tweet.user_id %>">
+          @<%= @tweet.user.nickname %>
+        </a>
+      </div>
+      <div class="haguruma-arond">
+        <a class="haguruma-btn" style="font-size: 12px;" ><%= fa_icon 'ellipsis-v 2x' %></a>
+
+
+        <div class="haguruma">
+         <ul>
+          <li>
+           <%= fa_icon 'pencil' %><%= link_to "詳細", tweet_path(@tweet.id), method: :get %>
+         </li>
+
+         <li>
+           <%= fa_icon 'pencil' %><%= link_to '編集', "/tweets/#{@tweet.id}/edit", method: :get %></li>
+           <li>
+             <%= fa_icon 'trash-o' %><%= link_to '削除', "/tweets/#{@tweet.id}", method: :delete %></li>
+
+           </ul>
+         </div>
+
+       </div><!-- haguruma-arond -->
+
+       <div class="usertime">
+
+        <%= @tweet.created_at.strftime("%Y年%m月%d日 %H時%M分")%>
+      </div>
+
+    </div><!--detail-->
+    <div class="line clearfix"></div>
+
+    <div class="text_post_big clearfix">
+
+      <%= @tweet.text %>
+
+
     </div>
-    <div class="username">
-    <a href="/users/<%= @tweet.user_id %>">
-        @<%= @tweet.user.nickname %>
-      </a>
+
+
+
+
+
+    <% if @tweet.image? %>
+    <div class="image_post2">
+      <%= image_tag @tweet.image.url %>
     </div>
-    <div class="haguruma-arond">
-    <a class="haguruma-btn" style="font-size: 12px;" ><%= fa_icon 'ellipsis-v 2x' %></a>
+    <% else %>
 
 
-    <div class="haguruma">
-     <ul>
-      <li>
-       <%= fa_icon 'pencil' %><%= link_to "詳細", tweet_path(@tweet.id), method: :get %>
-     </li>
-
-     <li>
-       <%= fa_icon 'pencil' %><%= link_to '編集', "/tweets/#{@tweet.id}/edit", method: :get %></li>
-       <li>
-         <%= fa_icon 'trash-o' %><%= link_to '削除', "/tweets/#{@tweet.id}", method: :delete %></li>
-
-       </ul>
-     </div>
-
-  </div><!-- haguruma-arond -->
-
-     <div class="usertime">
-
-      <%= @tweet.created_at.strftime("%Y年%m月%d日 %H時%M分")%>
-    </div>
-
-  </div><!--detail-->
-  <div class="line clearfix"></div>
-
-  <div class="text_post_big clearfix">
-
-<%= @tweet.text %>
-    
+    <% end %>
 
   </div>
-
-
-
-
-
-  <% if @tweet.image? %>
-<div class="image_post2">
-<%= image_tag @tweet.image.url %>
-  </div>
-
-  <% else %>
- 
-
-  <% end %>
-
-  <div class="text_post_big">
-    コメント数::<%= @tweet%>
-  </div>
-
 
 </div>
 
-        </div>
+
 
 
 <div class="contents row">
 
-        <div class="container"> 
+  <div class="container"> 
 
-          <!-- ここからいいねしてください -->
-          <div id="hoge">
-            <%= render partial: "likes/like", locals: { tweet: @tweet, like: @like} %>
-          </div>
-
-            <div class="text_post_big">
-              コメント数:<%= @comments.length%>
-            </div>
-
-
-          <!-- ここからフォーム -->
-          <% if current_user %>
-          <%= form_tag("/tweets/#{@tweet.id}/comments", method: :post) do %>
-          <textarea cols="30" name="text" placeholder="コメントする" rows="2"></textarea>
-          <input type="submit" value="SENT">
-          <% end %>
-          <% end %>
-
-
-          <!-- ここから追記してください -->
-          <div class="comments">
-            <h4>＜コメント一覧＞</h4>
-            <% if @comments %>
-            <% @comments.each do |comment| %>
-            <p>
-              <storng><%= link_to comment.user.nickname, "/users/#{comment.user_id}" %>：</strong>
-                <%= comment.text %>
-
-                <%= comment.created_at.to_s(:published_on) %>
-              </p>
-              <% end %>
-            <% end %>
-          </div>
-
-        </div>
-
-      </div>
+    <!-- ここからいいねしてください -->
+    <div id="hoge">
+      <%= render partial: "likes/like", locals: { tweet: @tweet, like: @like} %>
     </div>
+    <!-- ここまでいいねしてください -->
+
+    <div class="text_post_big">
+      コメント数:<%= @comments.length%>
+    </div>
+
+    <!-- ここからフォーム -->
+    <% if current_user %>
+    <%= form_tag("/tweets/#{@tweet.id}/comments", method: :post) do %>
+    <textarea cols="30" name="text" placeholder="コメントする" rows="2"></textarea>
+    <input type="submit" value="SENT">
+    <% end %>
+    <% end %>
+
+    <!-- ここから追記してください -->
+    <div class="comments">
+      <h4>＜コメント一覧＞</h4>
+      <% if @comments %>
+      <% @comments.each do |comment| %>
+      <p>
+        <storng><%= link_to comment.user.nickname, "/users/#{comment.user_id}" %>：</strong>
+          <%= comment.text %>
+
+          <%= comment.created_at.to_s(:published_on) %>
+        </p>
+        <% end %>
+        <% end %>
+      </div>
+
+    </div>
+
+  </div>
+</div>
 

@@ -36,6 +36,8 @@
     </div>
 
   </div><!--detail-->
+
+
   <div class="line clearfix"></div>
 
   <div class="text_post_big clearfix">
@@ -43,26 +45,42 @@
 <%= truncate(tweet.text, length: 80) do %>
 <%= link_to '詳細', tweet_path(tweet.id), method: :get %>
 <% end %>
-    
 
   </div>
 
 
   <% if tweet.image? %>
   <div class="image_post_big" style="background-image: url(<%= tweet.image %>);"> -->
-
-
   </div>
 
-  <% else %>
- 
+
+
 
   <% end %>
 
-  <div class="text_post_big">
-    コメント数::<%= tweet%>
+
+
+      <div class="content_low_iine">
+       <a>いいね</a>
+          <!-- ここからいいねしてください -->
+          <div class="iine_kigo">
+          <div id="hoge">
+            <%= render partial: "likes/like", locals: { tweet: tweet, like: like} %>
+               
+          </div>
+          <a ><%= tweet.likes_count%></a>
+
+
+        </div>
+                    <!-- ここからいいねしてください -->
+
+      </div>
+
+
+  <div class="">
+    <%= link_to 'コメント', tweet_path(tweet.id), method: :get %>
+    <a ><%= fa_icon 'comments 2x' %><%= comments.length%></a>
   </div>
 
 
 </div>
-

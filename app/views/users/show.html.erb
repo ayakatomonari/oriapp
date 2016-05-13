@@ -49,7 +49,12 @@
 <div class="content_wrap"> 
 <div class="mypage_margin">
       <% @tweets.each do |tweet| %>
-      <%= render partial: "tweets/tweet", locals: { tweet: tweet ,comments: tweet.comments} %>
+  
+     <%=  @comments = tweet.comments.includes(:user)%>
+     <%=  @like = Like.find_by(user_id: current_user.id, tweet_id: tweet.id)%>
+
+    <%= render partial: "tweets/tweet", locals: { tweet: tweet ,comments: @comments ,like: @like } %>
+
       <% end %>
   </div>
   </div>
@@ -57,14 +62,24 @@
 <div class="content_wrap disnon">
 <div class="mypage_margin">
         <% @tweets_comments.each do |tweet| %>
-        <%= render partial: "tweets/tweet", locals: { tweet: tweet ,comments: tweet.comments} %>
+  
+     <%=  @comments = tweet.comments.includes(:user)%>
+     <%=  @like = Like.find_by(user_id: current_user.id, tweet_id: tweet.id)%>
+
+    <%= render partial: "tweets/tweet", locals: { tweet: tweet ,comments: @comments ,like: @like } %>
+
         <% end %>
       </div>
 </div>
 <div class="content_wrap disnon">
 <div class="mypage_margin">
         <% @tweets_likes.each do |tweet| %>
-        <%= render partial: "tweets/tweet", locals: { tweet: tweet ,comments: tweet.comments} %>
+    
+     <%=  @comments = tweet.comments.includes(:user)%>
+     <%=  @like = Like.find_by(user_id: current_user.id, tweet_id: tweet.id)%>
+
+    <%= render partial: "tweets/tweet", locals: { tweet: tweet ,comments: @comments ,like: @like } %>
+
         <% end %>
       </div>
 

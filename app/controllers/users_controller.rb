@@ -6,6 +6,12 @@ class UsersController < ApplicationController
     @tweets = user.tweets.page(params[:page]).per(5).order("created_at DESC")
 
 
+# likeするよう
+        # @tweet = Tweet.find(params[:id])
+        # @comments = @tweet.comments.includes(:user)
+        # @like = Like.find_by(user_id: current_user.id, tweet_id: params[:id])
+
+
 # comment表示用
 
     @tweets_comments = []

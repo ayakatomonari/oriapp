@@ -1,7 +1,13 @@
 
 <div class="contents row">
+
   <% @tweets.each do |tweet| %>
-    <%= render partial: "tweet", locals: { tweet: tweet ,comments: tweet.comments} %>
+  
+     <%=  @comments = tweet.comments.includes(:user)%>
+     <%=  @like = Like.find_by(user_id: current_user.id, tweet_id: tweet.id)%>
+
+    <%= render partial: "tweet", locals: { tweet: tweet ,comments: @comments ,like: @like } %>
+
   <% end %>
   <%= paginate(@tweets) %>
 

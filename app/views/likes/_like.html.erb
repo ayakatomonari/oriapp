@@ -2,15 +2,17 @@
   <% if tweet.like_user(current_user.id) %>
  <%= button_to tweet_like_path(like, tweet_id: tweet.id), method: :delete, id: "like-button", remote: true do %>
 
+       <a><%= fa_icon 'heart 2x' ,class:'hartred' %></a>
 
-      <%= image_tag("iine.png") %>
       <span>
         <%= tweet.likes_count %>
       </span>
     <% end %>
   <% else %>
     <%= button_to tweet_likes_path(tweet), id: "like-button", remote: true do %>
-      <%= image_tag("noiine.png") %>
+
+        <a ><%= fa_icon 'heart-o 2x' %></a>
+ 
       <span>
         <%= tweet.likes_count %>
       </span>
@@ -18,7 +20,9 @@
     <% end %>
 
 <% else %>
-  <%= image_tag("noiine.png") %>
+
+    <a  ><%= fa_icon 'heart-o 2x' %></a>
+
     <span>
       <%= tweet.likes_count %>
     </span>

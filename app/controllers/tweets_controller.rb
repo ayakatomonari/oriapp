@@ -2,10 +2,8 @@ class TweetsController < ApplicationController
 
   before_action :move_to_index, :except => [:index]
 
-
   def index
     @tweets = Tweet.includes(:user).page(params[:page]).per(10).order("created_at DESC")
-
 
   end
 
@@ -40,22 +38,14 @@ class TweetsController < ApplicationController
       @tweet = Tweet.find(params[:id])
       @comments = @tweet.comments.includes(:user)
       @like = Like.find_by(user_id: current_user.id, tweet_id: params[:id])
-
-
     end
-
-
-
-
-
 
   private
   def tweet_params
       # params.permit(:text, :imege)
-      params.require(:tweet).permit(:image, :text, :title, :comic_number) 
+      params.require(:tweet).permit(:image, :text, :title, :comic_number, :tweet_tag_list) 
       # params.require(:tweet).permit(:image)
       # params.permit(:text)
-
     end
 
     def move_to_index
