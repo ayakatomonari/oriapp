@@ -51,7 +51,9 @@
       <% @tweets.each do |tweet| %>
 
       <%=  @comments = tweet.comments.includes(:user)%>
-      <%=  @like = Like.find_by(user_id: current_user.id, tweet_id: tweet.id)%>
+<% if user_signed_in? %>
+     <%=  @like = Like.find_by(user_id: current_user.id, tweet_id: tweet.id)%>
+<% end %>
 
       <%= render partial: "tweets/tweet", locals: { tweet: tweet ,comments: @comments ,like: @like } %>
 
@@ -64,7 +66,9 @@
       <% @tweets_comments.each do |tweet| %>
 
       <%=  @comments = tweet.comments.includes(:user)%>
-      <%=  @like = Like.find_by(user_id: current_user.id, tweet_id: tweet.id)%>
+<% if user_signed_in? %>
+     <%=  @like = Like.find_by(user_id: current_user.id, tweet_id: tweet.id)%>
+<% end %>
 
       <%= render partial: "tweets/tweet", locals: { tweet: tweet ,comments: @comments ,like: @like } %>
 
@@ -76,8 +80,9 @@
       <% @tweets_likes.each do |tweet| %>
 
       <%=  @comments = tweet.comments.includes(:user)%>
-      <%=  @like = Like.find_by(user_id: current_user.id, tweet_id: tweet.id)%>
-
+ <% if user_signed_in? %>
+     <%=  @like = Like.find_by(user_id: current_user.id, tweet_id: tweet.id)%>
+<% end %>
       <%= render partial: "tweets/tweet", locals: { tweet: tweet ,comments: @comments ,like: @like } %>
 
       <% end %>

@@ -3,10 +3,17 @@
 
   <% @tweets.each do |tweet| %>
   
+
      <%=  @comments = tweet.comments.includes(:user)%>
+
+<% if user_signed_in? %>
      <%=  @like = Like.find_by(user_id: current_user.id, tweet_id: tweet.id)%>
+<% end %>
 
     <%= render partial: "tweet", locals: { tweet: tweet ,comments: @comments ,like: @like } %>
+
+
+
 
   <% end %>
   <%= paginate(@tweets) %>
