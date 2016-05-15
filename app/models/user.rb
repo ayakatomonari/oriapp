@@ -32,6 +32,7 @@ mount_uploader :image, ImageUploader
 
 devise :database_authenticatable, :registerable,
        :recoverable, :rememberable, :trackable, :validatable, :omniauthable
+       
   def self.find_for_oauth(auth)
     user = User.where(uid: auth.uid, provider: auth.provider).first
 
@@ -53,6 +54,6 @@ devise :database_authenticatable, :registerable,
     "#{auth.uid}-#{auth.provider}@example.com"
   end
 
-  
+
 
 end

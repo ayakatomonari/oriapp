@@ -55,6 +55,9 @@ end
   end
 
 
+
+
+
    def facebook
     callback_from :facebook
   end
@@ -79,9 +82,11 @@ end
     end
   end
 
-  
 
-    private
+
+
+
+
   def update_params
     params.require(:user).permit(:image)
   end
