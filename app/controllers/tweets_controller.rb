@@ -5,6 +5,7 @@ class TweetsController < ApplicationController
   def index
     @tweets = Tweet.includes(:user).page(params[:page]).per(10).order("created_at DESC")
 
+
   end
 
   def new
@@ -12,7 +13,7 @@ class TweetsController < ApplicationController
   end
 
   def create
-      # binding.pry
+      
       Tweet.create(image: tweet_params[:image], text: tweet_params[:text], user_id: current_user.id, title: tweet_params[:title])
     end
 

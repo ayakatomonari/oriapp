@@ -950,7 +950,14 @@ ul.child li a{
 li a:hover{
     background: #ff0000;
 }
+
+.likescount{
+  color: #666666;
+}
+
 //////ドロップダウン用end
+
+
 
 footer {
   @include boxBase;

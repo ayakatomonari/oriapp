@@ -50,10 +50,10 @@
     <div class="mypage_margin">
       <% @tweets.each do |tweet| %>
 
-      <%=  @comments = tweet.comments.includes(:user)%>
-<% if user_signed_in? %>
-     <%=  @like = Like.find_by(user_id: current_user.id, tweet_id: tweet.id)%>
-<% end %>
+      <%  @comments = tweet.comments.includes(:user)%>
+      <% if user_signed_in? %>
+      <%=  @like = Like.find_by(user_id: current_user.id, tweet_id: tweet.id)%>
+      <% end %>
 
       <%= render partial: "tweets/tweet", locals: { tweet: tweet ,comments: @comments ,like: @like } %>
 
@@ -61,14 +61,16 @@
     </div>
   </div>
 
+
+
   <div class="content_wrap disnon">
     <div class="mypage_margin">
       <% @tweets_comments.each do |tweet| %>
 
-      <%=  @comments = tweet.comments.includes(:user)%>
-<% if user_signed_in? %>
-     <%=  @like = Like.find_by(user_id: current_user.id, tweet_id: tweet.id)%>
-<% end %>
+      <%  @comments = tweet.comments.includes(:user)%>
+      <% if user_signed_in? %>
+      <%=  @like = Like.find_by(user_id: current_user.id, tweet_id: tweet.id)%>
+      <% end %>
 
       <%= render partial: "tweets/tweet", locals: { tweet: tweet ,comments: @comments ,like: @like } %>
 
@@ -79,10 +81,10 @@
     <div class="mypage_margin">
       <% @tweets_likes.each do |tweet| %>
 
-      <%=  @comments = tweet.comments.includes(:user)%>
- <% if user_signed_in? %>
-     <%=  @like = Like.find_by(user_id: current_user.id, tweet_id: tweet.id)%>
-<% end %>
+      <%  @comments = tweet.comments.includes(:user)%>
+      <% if user_signed_in? %>
+      <%=  @like = Like.find_by(user_id: current_user.id, tweet_id: tweet.id)%>
+      <% end %>
       <%= render partial: "tweets/tweet", locals: { tweet: tweet ,comments: @comments ,like: @like } %>
 
       <% end %>

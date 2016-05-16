@@ -39,7 +39,7 @@ devise :database_authenticatable, :registerable,
         email:    User.dummy_email(auth),
         password: Devise.friendly_token[0, 20]
       )
-      binding.pry
+
     end
 
     user
