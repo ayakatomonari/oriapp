@@ -51,6 +51,11 @@
 
 
 
+<% @tweet.label_list.each do |tag| %>
+  <span class="label label-primary"><%= tag %></span>
+<% end %>
+
+
 
 
     <% if @tweet.image? %>
