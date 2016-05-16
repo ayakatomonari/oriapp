@@ -10,10 +10,10 @@
     # get   'users/:id'  =>  'users#show'
     # get 'tweets/:id' => 'tweets#show'       #ツイート詳細画面
 
-  # devise_for :users
-  # devise_for :users, path_names: { sign_in: "login", sign_out: "logout"},
-  #   controllers: { omniauth_callbacks: "omniauth_callbacks" },
-  #   :omniauth_providers => [:facebook]
+  devise_for :users
+
+
+
   root 'tweets#index'
   resources :tweets do
     resources :comments, only: [:create]
@@ -23,18 +23,6 @@
 
 get 'users/:id/comments' => 'comments#show'
 get 'users/:id/likes' => 'likes#show'
-
-# devise_for :users, controllers: { omniauth_callbacks: 'users/omniauth_callbacks'
-
-devise_for :users, controllers: { omniauth_callbacks: 'users/omniauth_callbacks' }
-
-# get 'users/auth/:provider(.:format) ' => 'omniauth_callbacks#passthru {:provider=>/twitter/}'
-# get 'users/auth/:action/callback(.:format)' => 'omniauth_callbacks#(?-mix:twitter)'
-# post 'users/auth/:provider(.:format) ' => 'omniauth_callbacks#passthru {:provider=>/twitter/}'
-# post 'users/auth/:action/callback(.:format)' => 'omniauth_callbacks#(?-mix:twitter)'
-
-
-
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

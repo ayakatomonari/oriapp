@@ -38,12 +38,14 @@ class TweetsController < ApplicationController
       @tweet = Tweet.find(params[:id])
       @comments = @tweet.comments.includes(:user)
       @like = Like.find_by(user_id: current_user.id, tweet_id: params[:id])
+
     end
+
 
   private
   def tweet_params
       # params.permit(:text, :imege)
-      params.require(:tweet).permit(:image, :text, :title, :comic_number, :tweet_tag_list) 
+      params.require(:tweet).permit(:image, :text, :title, :comic_number, :tag_list)
       # params.require(:tweet).permit(:image)
       # params.permit(:text)
     end
@@ -52,7 +54,9 @@ class TweetsController < ApplicationController
       redirect_to :action => "index" unless user_signed_in?
     end
 
-
+# def tag_list
+#   self.tags.map(&:name).join(', ')
+# end
 
 
   end

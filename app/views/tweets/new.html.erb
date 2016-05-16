@@ -11,6 +11,16 @@
 
 
 
+
+
+<%= text_field_tag "tweet[tag][]", "", placeholder: "Web Design"%>
+
+
+    <%= f.label :tag_list, "タグ（カンマ区切り）" %><br>
+    <%= text_field_tag 'tweet[tag_list]', @tweet.tag_list.join(',') %>
+
+
+
   <%= f.label :Text %><br>
   <%= f.text_area :text %>
 
