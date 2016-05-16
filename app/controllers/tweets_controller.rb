@@ -9,12 +9,17 @@ class TweetsController < ApplicationController
   end
 
   def new
-    @tweets = Tweet.new
+    @tweet = Tweet.new
   end
 
   def create
       
-      Tweet.create(image: tweet_params[:image], text: tweet_params[:text], user_id: current_user.id, title: tweet_params[:title])
+      tweet = Tweet.new(image: tweet_params[:image], text: tweet_params[:text], user_id: current_user.id, title: tweet_params[:title])
+      binding.pry
+      tweet.label_list.add((params[:tweet][:label_list]).split(","))
+      tweet.save
+
+
     end
 
     def destroy
@@ -46,7 +51,7 @@ class TweetsController < ApplicationController
   private
   def tweet_params
       # params.permit(:text, :imege)
-      params.require(:tweet).permit(:image, :text, :title, :comic_number, :tag_list)
+      params.require(:tweet).permit(:image, :text, :title, :comic_number, :tag_list, :label_list, :tag)
       # params.require(:tweet).permit(:image)
       # params.permit(:text)
     end

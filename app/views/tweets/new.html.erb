@@ -1,6 +1,6 @@
 <div class="contents row">
   <div class="container">
-  <%= form_for @tweets  do |f| %>
+  <%= form_for @tweet  do |f| %>
 
    <h3>
     投稿する
@@ -13,10 +13,8 @@
 
 
 
-<%= text_field_tag "tweet[tag][]", "", placeholder: "Web Design"%>
-
-
-
+   <%= f.label :label_list, "Tag" %><br>
+    <%= text_field_tag 'tweet[label_list]', @tweet.label_list.join(',') %>
 
 
   <%= f.label :Text %><br>
