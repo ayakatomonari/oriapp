@@ -10,9 +10,10 @@
     # get   'users/:id'  =>  'users#show'
     # get 'tweets/:id' => 'tweets#show'       #ツイート詳細画面
 
-  devise_for :users
+  # devise_for :users
 
 
+  devise_for :users, controllers: { omniauth_callbacks: 'users/omniauth_callbacks' }
 
   root 'tweets#index'
   resources :tweets do
