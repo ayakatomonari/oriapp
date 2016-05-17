@@ -4,9 +4,10 @@
 
        <a><%= fa_icon 'heart 2x' ,class:'hartred' %></a>
 
-      <span>
-        <%= tweet.likes_count %>
-      </span>
+      <span class="likescount">
+        <%=  tweet.likes_count.div(2) %>
+           </span>
+
     <% end %>
   <% else %>
     <%= button_to tweet_likes_path(tweet), id: "like-button", remote: true do %>
@@ -23,7 +24,7 @@
 
     <a  ><%= fa_icon 'heart-o 2x' %></a>
 
-    <span>
+    <span class="likescount">
       <%= tweet.likes_count %>
     </span>
 <% end %>

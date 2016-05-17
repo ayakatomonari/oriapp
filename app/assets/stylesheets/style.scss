@@ -227,7 +227,7 @@ a {
   background: #f781d8;
   color: #fff;
   padding: 12px 10px;
- width: 40%;
+ width: 200px;
  border-radius: 5px;
 
 }
@@ -684,6 +684,40 @@ form {
   float: right;
 }
 
+.iine {
+  padding-top: 20px;
+}
+
+
+.undertable{
+  width: 100%;
+}
+
+.undertable table{
+  width: 100%;
+  
+}
+
+.undertable td:nth-child(3){
+  text-align: center;
+  width:15%;
+
+}
+
+.undertable td:nth-child(1),.undertable td:nth-child(4){
+  text-align: right;
+
+
+}
+
+#like-button{
+  background:rgba(0,0,0,0);
+  border:0px solid #aaa;
+}
+
+
+
+
 
 
 
@@ -769,24 +803,28 @@ width: 30%;
 // 左
  .login_top3{
 
-width: 60%;
+width: 70%;
   text-align: center;
-  background:#f781d8;
+  background:#3b5998;
   padding-bottom: 1px;
   a{
     color: #fff;
   }
       margin-right: auto;
           margin-top: 0px;
-    margin-bottom: 0px;
+    margin-bottom: 20px;
         margin-left: auto;
   padding: 8px 8px;
+
  border-radius: 5px;
  font-size: 14px;
 
 
 }
 
+.fb_icon{
+color: #fff;
+}
 
 .FbBtn {
     background-color: #3b5998;

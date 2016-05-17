@@ -69,28 +69,22 @@
 
   <% end %>
 
-
-
-      <div class="content_low_iine">
-       <a>いいね</a>
-          <!-- ここからいいねしてください -->
-          <div class="iine_kigo">
-          <div id="hoge">
+<div class="undertable">
+<table>
+<tr>
+  <td> <%= link_to 'コメント', tweet_path(tweet.id), method: :get %></td>
+  <td> <a ><%= fa_icon 'comments 2x' %><%= comments.length%></a></td>
+  <td></td>
+  <td> <a class="iine">いいね</a></td>
+  <td>  <div id="hoge">
             <%= render partial: "likes/like", locals: { tweet: tweet, like: like} %>
-               
           </div>
+          </td>
+  </tr>
+  </table>
+  </div><!-- undertable -->
 
-
-        </div>
-                    <!-- ここからいいねしてください -->
-
-      </div>
-
-
-  <div class="">
-    <%= link_to 'コメント', tweet_path(tweet.id), method: :get %>
-    <a ><%= fa_icon 'comments 2x' %><%= comments.length%></a>
-  </div>
+ 
 
 
 </div>

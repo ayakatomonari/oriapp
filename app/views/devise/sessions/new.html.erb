@@ -1,16 +1,17 @@
   <div class="contents row">
 <div class="container">
 
-    <h3>ログイン</h3>
 
-
-
-       <div class="login_top3">
-<%= link_to "Facebookでログイン", user_omniauth_authorize_path(:facebook) %>
-</div><!--float-r-r-->
 
 
     <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+
+    <h3>ログイン</h3>
+
+       <div class="login_top3">
+<%= fa_icon 'facebook-square 2x', class: 'fb_icon' %><%= link_to "Facebookでログイン", user_omniauth_authorize_path(:facebook) %>
+</div><!--float-r-r-->
+
 
       <div class="field">
         <%= f.label 'メールアドレス' %><br />
