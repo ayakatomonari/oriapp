@@ -40,6 +40,10 @@
       </div>
 
     </div><!--detail-->
+
+
+
+
     <div class="line clearfix"></div>
 
     <div class="text_post_big clearfix">
@@ -84,15 +88,25 @@
 
   <div class="container"> 
 
-    <!-- ここからいいねしてください -->
-    <div id="hoge">
-      <%= render partial: "likes/like", locals: { tweet: @tweet, like: @like} %>
-    </div>
-    <!-- ここまでいいねしてください -->
 
-    <div class="text_post_big">
-      コメント数:<%= @comments.length%>
-    </div>
+<div class="undertable">
+<table>
+
+
+<tr>
+  <td> <%= link_to 'コメント', tweet_path(@tweet.id), method: :get %></td>
+  <td> <a ><%= fa_icon 'comments 2x' %><%= @comments.length%></a></td>
+  <td></td>
+  <td> <a class="iine">いいね</a></td>
+  <td>  <div id="hoge">
+            <%= render partial: "likes/like", locals: { tweet: @tweet, like: @like} %>
+          </div>
+          </td>
+  </tr>
+  </table>
+  </div><!-- undertable -->
+
+
 
     <!-- ここからフォーム -->
     <% if current_user %>

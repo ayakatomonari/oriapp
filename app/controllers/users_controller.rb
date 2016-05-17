@@ -43,8 +43,8 @@ end
     # num = 1
     # while num < Tweet.all.length
     @nickname = user.nickname
-    @comments = user.comments.page(params[:page]).per(5).order("created_at DESC")
-    @tweets = user.tweets.page(params[:page]).per(5).order("created_at DESC")
+    @comments = user.comments.page(params[:page]).per(10).order("created_at DESC")
+    @tweets = user.tweets.page(params[:page]).per(10).order("created_at DESC")
 
   end
 

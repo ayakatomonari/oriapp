@@ -26,7 +26,6 @@
 
 
 
-
   <div class="mypage">
 
     <table id="tab">
@@ -79,7 +78,7 @@
   </div>
   <div class="content_wrap disnon">
     <div class="mypage_margin">
-    
+
       <% @tweets_likes.each do |tweet| %>
 
       <%  @comments = tweet.comments.includes(:user)%>
