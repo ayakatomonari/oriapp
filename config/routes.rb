@@ -10,8 +10,6 @@
     # get   'users/:id'  =>  'users#show'
     # get 'tweets/:id' => 'tweets#show'       #ツイート詳細画面
 
-  # devise_for :users
-
 
   devise_for :users, controllers: { omniauth_callbacks: 'users/omniauth_callbacks' }
 
@@ -24,6 +22,13 @@
 
 get 'users/:id/comments' => 'comments#show'
 get 'users/:id/likes' => 'likes#show'
+get 'tags' => 'tweets#tag'
+get 'tags' => 'users#tag'
+# get 'tags/:tag' => 'tweets#tag'
+
+  # get 'tags/:tag', to: 'tweets#tag', as: :tag
+
+
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

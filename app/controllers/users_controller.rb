@@ -31,9 +31,17 @@ class UsersController < ApplicationController
 end
 
 
-
-
   end
+
+    def tag
+      # @tweets = Tweet.includes(:user).page(params[:page]).per(10).order("created_at DESC")
+        # if params[:tag]
+      # @tweets = Tweet.tagged_with(params[:tag])
+      @tweets = Tweet.tagged_with(params[:name]).order("created_at DESC")
+      # @tweets = params[:tag].present? ? Tweet.tagged_with(params[:tag]) :  TweetsControllerrweet.all
+      # @tweets = @tweets.includes(:tags)
+      # end
+    end
 
 
   def showcomm

@@ -4,8 +4,6 @@ class TweetsController < ApplicationController
 
   def index
     @tweets = Tweet.includes(:user).page(params[:page]).per(10).order("created_at DESC")
-
-
   end
 
   def new
@@ -13,12 +11,11 @@ class TweetsController < ApplicationController
   end
 
   def create
-      
       tweet = Tweet.new(image: tweet_params[:image], text: tweet_params[:text], user_id: current_user.id, title: tweet_params[:title])
-      binding.pry
+      # binding.pry
       tweet.label_list.add((params[:tweet][:label_list]).split(","))
       tweet.save
-
+      redirect_to :action => "index" 
 
     end
 
@@ -44,9 +41,18 @@ class TweetsController < ApplicationController
       @tweet = Tweet.find(params[:id])
       @comments = @tweet.comments.includes(:user)
       @like = Like.find_by(user_id: current_user.id, tweet_id: params[:id])
-
+      @tweets =Tweet.all
     end
 
+    def tag
+      # @tweets = Tweet.includes(:user).page(params[:page]).per(10).order("created_at DESC")
+        # if params[:tag]
+      # @tweets = Tweet.tagged_with(params[:tag])
+      @tweets = Tweet.tagged_with(params[:name]).order("created_at DESC")
+      # @tweets = params[:tag].present? ? Tweet.tagged_with(params[:tag]) :  TweetsControllerrweet.all
+      # @tweets = @tweets.includes(:tags)
+      # end
+    end
 
   private
   def tweet_params

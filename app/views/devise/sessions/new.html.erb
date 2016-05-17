@@ -1,29 +1,36 @@
   <div class="contents row">
 <div class="container">
 
-    <h2>Log in</h2>
+    <h3>ログイン</h3>
+
+
+
+       <div class="login_top3">
+<%= link_to "Facebookでログイン", user_omniauth_authorize_path(:facebook) %>
+</div><!--float-r-r-->
+
 
     <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
 
       <div class="field">
-        <%= f.label :email %><br />
+        <%= f.label 'メールアドレス' %><br />
         <%= f.email_field :email, autofocus: true %>
       </div>
 
       <div class="field">
-        <%= f.label :password %><br />
+        <%= f.label 'パスワード' %><br />
         <%= f.password_field :password, autocomplete: "off" %>
       </div>
 
       <% if devise_mapping.rememberable? -%>
         <div class="field">
-          <%= f.label :remember_me %><br />
+          <%= f.label 'ログイン情報を記憶させる' %><br />
           <%= f.check_box :remember_me %>
         </div>
       <% end -%>
 
       <div class="actions">
-        <%= f.submit "Log in" %>
+        <%= f.submit "ログイン" %>
       </div>
     <% end %>
   </div>

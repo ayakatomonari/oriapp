@@ -123,8 +123,9 @@ width: 100%;
 
 .haguruma-arond{
   padding:20px 20px 0 0;
-  position: relative;
+  position: absolute;
   text-align: right;
+  right: 0;
   width: 30%;
   float: right;
 }
@@ -183,6 +184,7 @@ float: left;
 
 .panel-btn a{
   text-decoration: none;
+
 }
 .panel-btn a:active {
   text-decoration: none;
@@ -762,6 +764,60 @@ width: 30%;
  border-radius: 5px;
  font-size: 14px;
 
+
+}
+// 左
+ .login_top3{
+
+width: 60%;
+  text-align: center;
+  background:#f781d8;
+  padding-bottom: 1px;
+  a{
+    color: #fff;
+  }
+      margin-right: auto;
+          margin-top: 0px;
+    margin-bottom: 0px;
+        margin-left: auto;
+  padding: 8px 8px;
+ border-radius: 5px;
+ font-size: 14px;
+
+
+}
+
+
+.FbBtn {
+    background-color: #3b5998;
+    height: 45px;
+    display: inline-block;
+    position: relative;
+    text-decoration: none;
+    border-radius: 4px;
+}
+ 
+.FbBtn:after {
+    content: "";
+    position: absolute;
+    top: 12px;
+    left: 12px;
+    width: 20px;
+    height: 20px;
+    background-image: url(FB-f-Logo__white_58.png);
+    background-repeat: no-repeat;
+    background-size: 20px 20px;
+}
+ 
+.FbBtnLabel {
+    color: #ffffff;
+    position: relative;
+    top: 13px;
+    text-align: center;
+    margin: 0 20px 0 50px;
+}
+
+.FbBtnLabel a{
 
 }
 

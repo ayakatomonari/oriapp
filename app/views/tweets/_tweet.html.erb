@@ -45,9 +45,11 @@
 
   <div class="line clearfix"></div>
 
-<% tweet.label_list.each do |tag| %>
-  <span class="label label-primary"><%= tag %></span>
-<% end %>
+
+<%= render 'tweets/tag_list', tag_list: tweet.label_list %>
+
+
+
 
   <div class="text_post_big clearfix">
 
