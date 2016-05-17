@@ -10,6 +10,9 @@
   <%= f.label :Image %><br>
   <%= f.file_field :image %>
 
+   <%= f.label :label_list, "Tag" %><br>
+    <%= text_field_tag 'tweet[label_list]', @tweet.label_list.join(',') %>
+
   <%= f.label :Text %><br>
   <%= f.text_area :text %>
 

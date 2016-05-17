@@ -28,25 +28,12 @@ end
   end
 
     def tag
-      # @tweets = Tweet.includes(:user).page(params[:page]).per(10).order("created_at DESC")
-        # if params[:tag]
-      # @tweets = Tweet.tagged_with(params[:tag])
+
       @tweets = Tweet.tagged_with(params[:name]).order("created_at DESC")
-      # @tweets = params[:tag].present? ? Tweet.tagged_with(params[:tag]) :  TweetsControllerrweet.all
-      # @tweets = @tweets.includes(:tags)
-      # end
+
     end
 
 
-  def showcomm
-    user = User.find(params[:id])
-    # num = 1
-    # while num < Tweet.all.length
-    @nickname = user.nickname
-    @comments = user.comments.page(params[:page]).per(10).order("created_at DESC")
-    @tweets = user.tweets.page(params[:page]).per(10).order("created_at DESC")
-
-  end
 
 
   def edit
@@ -54,6 +41,7 @@ end
 
   def update
     current_user.update(update_params)
+    redirect_to :root
   end
 
     private

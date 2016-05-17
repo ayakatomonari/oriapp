@@ -15,7 +15,7 @@ class TweetsController < ApplicationController
       # binding.pry
       tweet.label_list.add((params[:tweet][:label_list]).split(","))
       tweet.save
-      redirect_to :action => "index" 
+      redirect_to :root
 
     end
 
@@ -24,6 +24,7 @@ class TweetsController < ApplicationController
       if tweet.user_id == current_user.id
         tweet.destroy
       end
+      redirect_to :root
     end
 
     def edit
@@ -35,6 +36,7 @@ class TweetsController < ApplicationController
       if tweet.user_id == current_user.id
         tweet.update(tweet_params)
       end
+      redirect_to action: 'show'
     end
 
     def show
@@ -48,6 +50,7 @@ class TweetsController < ApplicationController
       # @tweets = Tweet.includes(:user).page(params[:page]).per(10).order("created_at DESC")
         # if params[:tag]
       # @tweets = Tweet.tagged_with(params[:tag])
+      # binding pry
       @tweets = Tweet.tagged_with(params[:name]).order("created_at DESC")
       # @tweets = params[:tag].present? ? Tweet.tagged_with(params[:tag]) :  TweetsControllerrweet.all
       # @tweets = @tweets.includes(:tags)
