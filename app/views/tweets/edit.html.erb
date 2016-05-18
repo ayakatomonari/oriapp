@@ -7,17 +7,17 @@
     編集する
   </h3>
 
-  <%= f.label :Image %><br>
+  <%= f.label "画像" %><br>
   <%= f.file_field :image %>
 
-   <%= f.label :label_list, "Tag" %><br>
+   <%= f.label :label_list, "タグ" %><br>
     <%= text_field_tag 'tweet[label_list]', @tweet.label_list.join(',') %>
 
-  <%= f.label :Text %><br>
+  <%= f.label "テキスト" %><br>
   <%= f.text_area :text %>
 
 
-  <%= f.submit "SENT" %>
+  <%= f.submit "編集" %>
 
 
   <% end %>
