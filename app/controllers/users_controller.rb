@@ -8,48 +8,48 @@ class UsersController < ApplicationController
 
 # comment表示用
 
-    @tweets_comments = []
-    user.comments.each do |comment|
-      @tweets_comments << comment.tweet
-    end
-    @tweets_comments.reverse!
+@tweets_comments = []
+user.comments.each do |comment|
+  @tweets_comments << comment.tweet
+end
+@tweets_comments.reverse!
 
 # like表示用
-    @tweets_likes = []
+@tweets_likes = []
 
-    user.likes.each do |like|
-      if like.tweet_id?
-        @tweets_likes << like.tweet
-      end
-    @tweets_likes.reverse!
+user.likes.each do |like|
+  if like.tweet_id?
+    @tweets_likes << like.tweet
+  end
+  @tweets_likes.reverse!
 end
 
 
-  end
+end
 
-    def tag
+def tag
 
-      @tweets = Tweet.tagged_with(params[:name]).order("created_at DESC")
+  @tweets = Tweet.tagged_with(params[:name]).order("created_at DESC")
 
-    end
-
-
+end
 
 
-  def edit
-  end
-
-  def update
-    current_user.update(update_params)
-    redirect_to :root
-  end
-
-    private
-  def update_params
-    params.require(:user).permit(:image)
-  end
 
 
-  end
+def edit
+end
+
+def update
+  current_user.update(update_params)
+  redirect_to :root
+end
+
+private
+def update_params
+  params.require(:user).permit(:image, :nickname)
+end
+
+
+end
 
 
