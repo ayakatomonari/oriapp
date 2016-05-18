@@ -30,19 +30,18 @@ class LikesController < ApplicationController
 
 
 
-  def show
+  # def show
+  #   user = User.find(params[:id])
+  #   @nickname = user.nickname
+  #   @tweets = []
 
-    user = User.find(params[:id])
-    @nickname = user.nickname
-    @tweets = []
+  #   user.likes.each do |like|
+  #     if like.tweet_id?
+  #       @tweets << like.tweet
+  #     end
+  #   end
 
-    user.likes.each do |like|
-      if like.tweet_id?
-        @tweets << like.tweet
-      end
-    end
-
-  end
+  # end
 
 
 

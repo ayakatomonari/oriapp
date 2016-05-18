@@ -56,10 +56,8 @@ class TweetsController < ApplicationController
 
   private
   def tweet_params
-      # params.permit(:text, :imege)
       params.require(:tweet).permit(:image, :text, :title, :comic_number, :tag_list, :label_list, :tag)
-      # params.require(:tweet).permit(:image)
-      # params.permit(:text)
+
     end
 
     def move_to_index

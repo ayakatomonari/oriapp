@@ -20,12 +20,11 @@
   end
     resources :users, only: [:show, :edit, :update]
 
-get 'users/:id/comments' => 'comments#show'
-get 'users/:id/likes' => 'likes#show'
+# get 'users/:id/comments' => 'comments#show'
+# get 'users/:id/likes' => 'likes#show'
 get 'tags' => 'tweets#tag'
 get 'tags' => 'users#tag'
 # get 'tags/:tag' => 'tweets#tag'
-
   # get 'tags/:tag', to: 'tweets#tag', as: :tag
 
 
