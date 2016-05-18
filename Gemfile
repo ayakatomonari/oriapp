@@ -80,3 +80,4 @@ gem 'acts-as-taggable-on', '~> 3.4'
 gem 'rails_12factor', group: :production
 
 gem 'font-awesome-rails'
+gem 'jquery-turbolinks'
