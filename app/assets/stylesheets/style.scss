@@ -44,8 +44,8 @@ $lightpink: rgba(255,247,253,0.91);
 body,html {
   height: 100%;
   // background-color: $lightGray;
-  background-color: $lightpink;
-  background-image: image-url("/images/back.jpg");
+  // background-color: $lightpink;
+  background-image: url("/images/back.jpg");
 
 }
 
