@@ -52,6 +52,7 @@ class TweetsController < ApplicationController
     def tag
 
       @tweets = Tweet.tagged_with(params[:name]).order("created_at DESC")
+      @tag = params[:name]
     end
 
   private

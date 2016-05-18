@@ -1,8 +1,13 @@
 <div class="contents row">
   <div class="container">
     <%= form_for current_user do |f| %>
-      <h3>登録情報</h3>
+      <h3>ユーザー情報変更</h3>
 
+
+      <div class="field">
+        <%= f.label 'ニックネーム' %> <br />
+       <%= f.text_field :nickname, autofocus: true %>
+      </div>
 
       <div class="field">
       <%= f.label "画像" %><br>

@@ -47,35 +47,16 @@
     <div class="line clearfix"></div>
 
     <div class="text_post_big clearfix">
-
       <%= @tweet.text %>
-
-
     </div>
-
-
-
 
 <%= render 'tweets/tag_list', tag_list: @tweet.label_list %>
 
-
-
-
-
-
-
     <% if @tweet.image? %>
-    <div class="image_post2">
-      <%= image_tag @tweet.image.url %>
+      <%= image_tag @tweet.image.url ,class:'image_post2'%>
     </div>
-    <% else %>
-
-
     <% end %>
-
   </div>
-
-
 </div>
 
 

@@ -63,7 +63,8 @@
 
 
   <% if tweet.image? %>
-  <div class="image_post_big" style="background-image: url(<%= tweet.image %>);"> -->
+  <div class="image_post_big" style="background-image: url(<%= tweet.image %>);"> 
+  <%= link_to '　', tweet_path(tweet.id), method: :get %>
   </div>
 
 
