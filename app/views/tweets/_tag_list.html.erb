@@ -1,6 +1,10 @@
+<div class="tagmargin">
+
 <% tag_list.each do |tag| %>
  <span class="tag-label">
   <%= fa_icon 'tag' %><%= link_to tag, { :action => :tag, :name => tag } %>
   </span>
 
 <% end %>
+
+  </div>

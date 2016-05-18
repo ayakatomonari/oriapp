@@ -23,12 +23,10 @@
           <li>
            <%= fa_icon 'pencil' %><%= link_to "詳細", tweet_path(@tweet.id), method: :get %>
          </li>
-
          <li>
            <%= fa_icon 'pencil' %><%= link_to '編集', "/tweets/#{@tweet.id}/edit", method: :get %></li>
            <li>
              <%= fa_icon 'trash-o' %><%= link_to '削除', "/tweets/#{@tweet.id}", method: :delete %></li>
-
            </ul>
          </div>
 
@@ -42,21 +40,18 @@
     </div><!--detail-->
 
 
-
-
     <div class="line clearfix"></div>
 
+    <%= render 'tweets/tag_list', tag_list: @tweet.label_list %>
     <div class="text_post_big clearfix">
       <%= @tweet.text %>
     </div>
 
-<%= render 'tweets/tag_list', tag_list: @tweet.label_list %>
-
     <% if @tweet.image? %>
-      <%= image_tag @tweet.image.url ,class:'image_post2'%>
-    </div>
-    <% end %>
+    <%= image_tag @tweet.image.url ,class:'image_post2'%>
   </div>
+  <% end %>
+</div>
 </div>
 
 
@@ -64,56 +59,50 @@
 
 
 
-
 <div class="contents row">
-
   <div class="container"> 
-
-
-<div class="undertable">
-<table>
-
-
-<tr>
-  <td> <%= link_to 'コメント', tweet_path(@tweet.id), method: :get %></td>
-  <td> <a ><%= fa_icon 'comments 2x' %><%= @comments.length%></a></td>
-  <td></td>
-  <td> <a class="iine">いいね</a></td>
-  <td>  <div id="hoge">
+    <div class="undertable">
+      <table>
+        <tr>
+          <td> <%= link_to 'コメント', tweet_path(@tweet.id), method: :get %></td>
+          <td> <a ><%= fa_icon 'comments 2x' %><%= @comments.length%></a></td>
+          <td></td>
+          <td> <a class="iine">いいね</a></td>
+          <td>  <div id="hoge">
             <%= render partial: "likes/like", locals: { tweet: @tweet, like: @like} %>
           </div>
-          </td>
-  </tr>
-  </table>
+        </td>
+      </tr>
+    </table>
   </div><!-- undertable -->
 
 
 
-    <!-- ここからフォーム -->
-    <% if current_user %>
-    <%= form_tag("/tweets/#{@tweet.id}/comments", method: :post) do %>
-    <textarea cols="30" name="text" placeholder="コメントする" rows="2"></textarea>
-    <input type="submit" value="SENT">
-    <% end %>
-    <% end %>
+  <!-- ここからフォーム -->
+  <% if current_user %>
+  <%= form_tag("/tweets/#{@tweet.id}/comments", method: :post) do %>
+  <textarea cols="30" name="text" placeholder="コメントする" rows="2"></textarea>
+  <input type="submit" value="SENT">
+  <% end %>
+  <% end %>
 
-    <!-- ここから追記してください -->
-    <div class="comments">
-      <h4>＜コメント一覧＞</h4>
-      <% if @comments %>
-      <% @comments.each do |comment| %>
-      <p>
-        <storng><%= link_to comment.user.nickname, "/users/#{comment.user_id}" %>：</strong>
-          <%= comment.text %>
+  <!-- ここから追記してください -->
+  <div class="comments">
+    <h4>＜コメント一覧＞</h4>
+    <% if @comments %>
+    <% @comments.each do |comment| %>
+    <p>
+      <storng><%= link_to comment.user.nickname, "/users/#{comment.user_id}" %>：</strong>
+        <%= comment.text %>
 
-          <%= comment.created_at.to_s(:published_on) %>
-        </p>
-        <% end %>
-        <% end %>
-      </div>
-
+        <%= comment.created_at.to_s(:published_on) %>
+      </p>
+      <% end %>
+      <% end %>
     </div>
 
   </div>
+
+</div>
 </div>
 

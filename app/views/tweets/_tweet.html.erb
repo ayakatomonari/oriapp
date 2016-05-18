@@ -7,29 +7,29 @@
     <div class="user_image" style="background-image: url(<%= tweet.user.image %>);"> -->
     </div>
     <div class="username">
-    <a href="/users/<%= tweet.user_id %>">
+      <a href="/users/<%= tweet.user_id %>">
         @<%= tweet.user.nickname %>
       </a>
     </div>
     <div class="haguruma-arond">
-    <a class="haguruma-btn" style="font-size: 12px;" ><%= fa_icon 'ellipsis-v 2x' %></a>
+      <a class="haguruma-btn" style="font-size: 12px;" ><%= fa_icon 'ellipsis-v 2x' %></a>
 
 
-    <div class="haguruma">
-     <ul>
-      <li>
-       <%= fa_icon 'pencil' %><%= link_to "詳細", tweet_path(tweet.id), method: :get %>
-     </li>
+      <div class="haguruma">
+       <ul>
+        <li>
+         <%= fa_icon 'pencil' %><%= link_to "詳細", tweet_path(tweet.id), method: :get %>
+       </li>
 
-     <li>
-       <%= fa_icon 'pencil' %><%= link_to '編集', "/tweets/#{tweet.id}/edit", method: :get %></li>
        <li>
-         <%= fa_icon 'trash-o' %><%= link_to '削除', "/tweets/#{tweet.id}", method: :delete %></li>
+         <%= fa_icon 'pencil' %><%= link_to '編集', "/tweets/#{tweet.id}/edit", method: :get %></li>
+         <li>
+           <%= fa_icon 'trash-o' %><%= link_to '削除', "/tweets/#{tweet.id}", method: :delete %></li>
 
-       </ul>
-     </div>
+         </ul>
+       </div>
 
-  </div><!-- haguruma-arond -->
+     </div><!-- haguruma-arond -->
 
      <div class="usertime">
 
@@ -46,7 +46,7 @@
   <div class="line clearfix"></div>
 
 
-<%= render 'tweets/tag_list', tag_list: tweet.label_list %>
+  <%= render 'tweets/tag_list', tag_list: tweet.label_list %>
 
 
 
@@ -54,9 +54,9 @@
   <div class="text_post_big clearfix">
 
 
-<%= truncate(tweet.text, length: 80) do %>
-<%= link_to '詳細', tweet_path(tweet.id), method: :get %>
-<% end %>
+    <%= truncate(tweet.text, length: 80) do %>
+    <%= link_to '詳細', tweet_path(tweet.id), method: :get %>
+    <% end %>
 
   </div>
 
@@ -64,28 +64,28 @@
 
   <% if tweet.image? %>
   <div class="image_post_big" style="background-image: url(<%= tweet.image %>);"> 
-  <%= link_to '　', tweet_path(tweet.id), method: :get %>
+    <%= link_to '　', tweet_path(tweet.id), method: :get %>
   </div>
 
 
   <% end %>
 
-<div class="undertable">
-<table>
-<tr>
-  <td> <%= link_to 'コメント', tweet_path(tweet.id), method: :get %></td>
-  <td> <a ><%= fa_icon 'comments 2x' %><%= comments.length%></a></td>
-  <td></td>
-  <td> <a class="iine">いいね</a></td>
-  <td>  <div id="hoge">
-            <%= render partial: "likes/like", locals: { tweet: tweet, like: like} %>
-          </div>
-          </td>
-  </tr>
+  <div class="undertable">
+    <table>
+      <tr>
+        <td> <%= link_to 'コメント', tweet_path(tweet.id), method: :get %></td>
+        <td> <a ><%= fa_icon 'comments 2x' %><%= comments.length%></a></td>
+        <td></td>
+        <td> <a class="iine">いいね</a></td>
+        <td>  <div id="hoge">
+          <%= render partial: "likes/like", locals: { tweet: tweet, like: like} %>
+        </div>
+      </td>
+    </tr>
   </table>
-  </div><!-- undertable -->
+</div><!-- undertable -->
 
- 
+
 
 
 </div>
