@@ -15,20 +15,20 @@
         </a>
       </div>
       <div class="haguruma-arond">
+      <% if current_user.id == @tweet.user.id%>
         <a class="haguruma-btn" style="font-size: 12px;" ><%= fa_icon 'ellipsis-v 2x' %></a>
+
 
 
         <div class="haguruma">
          <ul>
-          <li>
-           <%= fa_icon 'pencil' %><%= link_to "詳細", tweet_path(@tweet.id), method: :get %>
-         </li>
          <li>
-           <%= fa_icon 'pencil' %><%= link_to '編集', "/tweets/#{@tweet.id}/edit", method: :get %></li>
+           <%= fa_icon 'pencil-square-o' %><%= link_to '編集', "/tweets/#{@tweet.id}/edit", method: :get %></li>
            <li>
              <%= fa_icon 'trash-o' %><%= link_to '削除', "/tweets/#{@tweet.id}", method: :delete %></li>
            </ul>
          </div>
+         <% end %>
 
        </div><!-- haguruma-arond -->
 
@@ -60,7 +60,7 @@
 
 
 <div class="contents row">
-  <div class="container"> 
+  <div class="container_show"> 
     <div class="undertable">
       <table>
         <tr>
@@ -82,21 +82,24 @@
   <% if current_user %>
   <%= form_tag("/tweets/#{@tweet.id}/comments", method: :post) do %>
   <textarea cols="30" name="text" placeholder="コメントする" rows="2"></textarea>
-  <input type="submit" value="SENT">
+  <input type="submit" value="送信">
   <% end %>
   <% end %>
 
   <!-- ここから追記してください -->
   <div class="comments">
-    <h4>＜コメント一覧＞</h4>
+    <h3><%= fa_icon 'comments-o'%>コメント一覧<%= fa_icon 'comments-o'%></h3>
+        <div class="line2 clearfix"></div>
     <% if @comments %>
     <% @comments.each do |comment| %>
-    <p>
+    <p class="commentfont">
       <storng><%= link_to comment.user.nickname, "/users/#{comment.user_id}" %>：</strong>
+        <span class="comment_time">
+        <%= comment.created_at.strftime("%Y/%m/%d %H:%M")%>
+      </span></br>
         <%= comment.text %>
-
-        <%= comment.created_at.to_s(:published_on) %>
       </p>
+       <div class="line2 clearfix"></div>
       <% end %>
       <% end %>
     </div>

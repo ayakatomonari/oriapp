@@ -38,20 +38,22 @@
           <tbody>
             <tr>
               <td>
-               <a href="/users/<%= current_user.id %>"><%= fa_icon 'user spin',class:'red' %>マイページ</a>
+               <a href="/users/<%= current_user.id %>"><%= fa_icon 'user',class:'fa-pink' %>マイページ</a>
              </td>
 
              <td>
-               <%= link_to "ユーザー情報", edit_user_path(current_user) %></td>
+
+                <a href="/users/<%= current_user.id %>/edit"><%= fa_icon 'pencil-square-o',class:'fa-pink' %>ユーザー情報</a>
+               </td>
                <td>
-                 <%= link_to "ログアウト", destroy_user_session_path, method: :delete %></td>
+          <%= link_to "ログアウト", destroy_user_session_path, method: :delete %></td>
                </tr>
              </tbody>
            </table>
          </div>
 
          <div class="float-r-r">
-          <a href="/tweets/new">投稿する</a>
+          <a href="/tweets/new"><%= fa_icon 'pencil-square-o' %>投稿する</a>
         </div><!--float-r-r-->
 
 

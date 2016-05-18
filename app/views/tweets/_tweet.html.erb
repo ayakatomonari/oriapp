@@ -12,22 +12,39 @@
       </a>
     </div>
     <div class="haguruma-arond">
+
+          <% if current_user.id == tweet.user.id%>
       <a class="haguruma-btn" style="font-size: 12px;" ><%= fa_icon 'ellipsis-v 2x' %></a>
-
-
       <div class="haguruma">
        <ul>
         <li>
-         <%= fa_icon 'pencil' %><%= link_to "詳細", tweet_path(tweet.id), method: :get %>
+         <%= fa_icon 'info-circle' %><%= link_to "詳細", tweet_path(tweet.id), method: :get %>
        </li>
 
+
        <li>
-         <%= fa_icon 'pencil' %><%= link_to '編集', "/tweets/#{tweet.id}/edit", method: :get %></li>
+         <%= fa_icon 'pencil-square-o' %><%= link_to '編集', "/tweets/#{tweet.id}/edit", method: :get %></li>
          <li>
            <%= fa_icon 'trash-o' %><%= link_to '削除', "/tweets/#{tweet.id}", method: :delete %></li>
+           
 
          </ul>
        </div>
+
+
+      <% else %>
+      <a class="haguruma-btn" style="font-size: 12px;" ><%= fa_icon 'info-circle 2x' %></a>
+      <div class="haguruma">
+       <ul>
+        <li>
+         <%= fa_icon 'info-circle' %><%= link_to "詳細", tweet_path(tweet.id), method: :get %>
+       </li>
+     </ul>
+   </div>
+
+      <% end %>
+
+
 
      </div><!-- haguruma-arond -->
 
@@ -69,6 +86,8 @@
 
 
   <% end %>
+
+       <div class="line2 clearfix"></div>
 
   <div class="undertable">
     <table>
