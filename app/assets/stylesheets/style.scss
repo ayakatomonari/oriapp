@@ -45,7 +45,7 @@ body,html {
   height: 100%;
   // background-color: $lightGray;
   background-color: $lightpink;
-  background-image: image-url("back.jpg");
+  background-image: image-url("/images/back.jpg");
 
 }
 
@@ -145,26 +145,26 @@ float: left;
 
 
 
-.float-right .panel a{
-  display: block;
-  padding:7px 5px;
-  width: 100%;
-  text-align: center;
-  font-size: 14px;
-  border-radius: 0px;
-  background: #fff;
-  color:#f781d8;
-  text-decoration: none;
+// .float-right .panel a{
+//   display: block;
+//   padding:7px 5px;
+//   width: 100%;
+//   text-align: center;
+//   font-size: 14px;
+//   border-radius: 0px;
+//   background: #fff;
+//   color:#f781d8;
+//   text-decoration: none;
  
-}
+// }
 
-.panel-btn a{
-  text-decoration: none;
+// .panel-btn a{
+//   text-decoration: none;
 
-}
-.panel-btn a:active {
-  text-decoration: none;
-}
+// }
+// .panel-btn a:active {
+//   text-decoration: none;
+// }
 
 
 a {
@@ -983,40 +983,72 @@ header h1{
 
 }
 
+
+.float-right a{
+  background: #f781d8;
+  color: #fff;
+  padding: 12px 10px;
+ width: 200px;
+ border-radius: 5px;
+
+}
+
+
+.float-right .panel a{
+  display: block;
+  padding:7px 5px;
+  width: 100%;
+  text-align: center;
+  font-size: 14px;
+  border-radius: 0px;
+  background: #fff;
+  color:#f781d8;
+  text-decoration: none;
+ 
+}
+
+.panel-btn a{
+  text-decoration: none;
+
+}
+.panel-btn a:active {
+  text-decoration: none;
+}
+
 //////ドロップダウン用
 
-ul{
-    list-style-type: none;
-    margin: 0;
-    padding: 0;
-    color: #fff;
-}
-ul#menu li{
-    float: left;
-    position: relative;
-    margin: 0;
-    padding: 5px;
-    width: 200px;
-    background-color: #555555;
-    display: block;
-}
-ul.child{
-        display: none;
-        position: absolute;
-        margin-left: -5px;
-        padding: 0;
-}
-ul.child li a{
-    padding: 5px 10px;
-    margin-left: -5px;
-    margin-right: -5px;
-    margin-bottom: -5px;
-    display: block;
-    color: #fff;
-}
-li a:hover{
-    background: #ff0000;
-}
+// ul{
+//     list-style-type: none;
+//     margin: 0;
+//     padding: 0;
+//     color: #fff;
+// }
+// ul#menu li{
+//     float: left;
+//     position: relative;
+//     margin: 0;
+//     padding: 5px;
+//     width: 200px;
+//     background-color: #555555;
+//     display: block;
+// }
+// ul.child{
+//         display: none;
+//         position: absolute;
+//         margin-left: -5px;
+//         padding: 0;
+// }
+// ul.child li a{
+//     padding: 5px 10px;
+//     margin-left: -5px;
+//     margin-right: -5px;
+//     margin-bottom: -5px;
+//     display: block;
+//     color: #fff;
+// }
+// li a:hover{
+//     background: #ff0000;
+// }
 
 .likescount{
   color: #666666;
@@ -1027,6 +1059,8 @@ li a:hover{
 }
 
 //////ドロップダウン用end
+
+
 
 
 
