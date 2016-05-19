@@ -585,7 +585,7 @@ form {
 }
 
 .mypage_margin{
-  margin-top: 150px;
+  margin-top: 170px;
 }
 
 .tagpage_margin{
@@ -1059,8 +1059,9 @@ header h1{
 }
 
 .user_background{
-  padding-bottom: 50px;
-
+  padding-bottom: 200px;
+  min-width: 100%;
+  min-height: 500px;
   // width: 100%;
   // height:100%;
   z-index: 1000;
@@ -1149,10 +1150,10 @@ footer {
   clear: both;
   margin: 0;
   padding: 0px;
-  background:rgba(247, 129, 216, 0.07);
   width:100%;
   text-align: center;
   color: #f781d8;
+  background:rgba(247, 129, 216, 0.07);
   
   p {
     text-align: center;
