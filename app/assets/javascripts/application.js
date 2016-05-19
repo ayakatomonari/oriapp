@@ -13,6 +13,7 @@
 //= require jquery
 //= require jquery_ujs
 //= require twitter/bootstrap
+//= require bootstrap-tagsinput.min
 //= require jquery.turbolinks
 //= require turbolinks
 //= require_tree .

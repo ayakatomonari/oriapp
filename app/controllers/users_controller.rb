@@ -46,7 +46,7 @@ end
 
 private
 def update_params
-  params.require(:user).permit(:image, :nickname)
+  params.require(:user).permit(:image, :nickname, :backimage)
 end
 
 
