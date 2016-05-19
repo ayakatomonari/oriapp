@@ -41,7 +41,9 @@ end
 
 def update
   current_user.update(update_params)
-  redirect_to :root
+  # redirect_to :root
+  redirect_to controller: 'users', action: 'show', id: params[:id]
+  # @tweet.user_id
 end
 
 private
